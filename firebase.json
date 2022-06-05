@@ -1,6 +1,14 @@
 {
   "database": {
     "rules": "database.rules.json"
+  },
+  "hosting": {
+    "site": "mahiruslu",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
-  
 }

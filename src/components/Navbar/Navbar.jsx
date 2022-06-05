@@ -8,13 +8,13 @@ import {
   faUser,
   faLightbulb,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faTwitter,
-  faInstagram,
-  faGithub,
-  faStackOverflow,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+// import {
+//   faTwitter,
+//   faInstagram,
+//   faGithub,
+//   faStackOverflow,
+//   faLinkedin,
+// } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
 
@@ -37,7 +37,6 @@ function Navbar() {
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faHome}
-              size="x"
             />
             <span className={Styles.nav_item_title}>Home</span>
           </Link>
@@ -47,7 +46,6 @@ function Navbar() {
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faUser}
-              size="x"
             />
           </Link>
         </div>
@@ -57,7 +55,6 @@ function Navbar() {
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faLightbulb}
-              size="x"
             />
           </Link>
         </div>
@@ -67,7 +64,6 @@ function Navbar() {
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faFeather}
-              size="x"
             />
           </Link>
         </div>
@@ -77,7 +73,6 @@ function Navbar() {
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faContactCard}
-              size="x"
             />
           </Link>
         </div>
