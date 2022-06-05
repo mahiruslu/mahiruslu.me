@@ -1,0 +1,97 @@
+
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    left:0;
+    bottom: 0;
+    z-index: 1;
+    margin-bottom: 20px;
+    transition: all .3s ease-in-out;
+
+    &_item{
+        margin: 10px 0;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        transition: all .3s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.18);
+        height: 40px;
+        width: 40px;
+        transform: translate(10px, 5px);
+
+
+        &_button{
+            justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+            border-radius: 100%;
+            border-width: 0;
+            position: relative;
+            transition: all .3s ease-in-out;
+            bottom: 0;
+            cursor: pointer;
+            display: flex;
+            background-color: transparent;
+            transform: translate(-10px, -10px);
+            padding: 10px;
+            color: #2155CD;
+            &_icon{
+                background-color: transparent;
+                transform: scale(2.1);
+            }
+        &:hover{
+            // animation: moveDock .3s ease-in-out 1 normal forwards; 
+
+            transform: scale(1.4);
+            bottom: 15px;
+
+            ::before{
+                transform: translateY(10px);
+            }
+            ::after{
+                transform: translateY(-10px);
+            }
+            .nav_item_title{
+                transition: all .3s ease-in-out;
+                display: none;
+            }
+        }
+    }
+
+        &_title{
+            display: none;
+            // transform: translateY(-100%);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: black;
+            padding-left: 10px;
+            background-color: transparent;
+            transition: all .3s ease-in-out;
+        }
+    }
+
+    &_wrapper{
+        width: 90%;
+        max-width: 400px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        gap: 30px;
+        border-radius: 16px;
+        background: rgba(83, 83, 83, 0.25);
+        backdrop-filter: blur(13px);
+        -webkit-backdrop-filter: blur(13px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+}
+  
