@@ -19,8 +19,7 @@ import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
 
 function Navbar() {
-  const navigation = useNavigate();
-  console.log(navigation);
+  // const navigation = useNavigate();
 
   return (
     <nav className={Styles.nav}>
@@ -32,50 +31,51 @@ function Navbar() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <div className={Styles.nav_item}>
-          <Link className={Styles.nav_item_button} to="/">
+        <Link className={Styles.nav_item} to="/">
+          <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faHome}
             />
             <span className={Styles.nav_item_title}>Home</span>
-          </Link>
-        </div>
-        <div className={Styles.nav_item}>
-          <Link className={Styles.nav_item_button} to="/profile">
+          </div>
+        </Link>
+
+        <Link className={Styles.nav_item} to="/profile">
+          <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faUser}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
 
-        <div className={Styles.nav_item}>
-          <Link className={Styles.nav_item_button} to="/gallery">
+        <Link className={Styles.nav_item} to="/projects">
+          <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faLightbulb}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
 
-        <div className={Styles.nav_item}>
-          <Link className={Styles.nav_item_button} to="/">
+        <Link className={Styles.nav_item} to="/blog">
+          <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faFeather}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
 
-        <div className={Styles.nav_item}>
-          <Link className={Styles.nav_item_button} to="/">
+        <Link className={Styles.nav_item} to="/contact">
+          <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
               icon={faContactCard}
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </motion.div>
     </nav>
   );

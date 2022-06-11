@@ -1,0 +1,39 @@
+.home{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+
+    &_wrapper{
+        overflow: hidden;
+        background-image: src('../../assets/images/home-bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 900%;
+        width: 90%; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    &_title{
+        background-color: transparent;
+        font-family: 'Pacifico', cursive;
+        font-weight: bold;
+        font-size: 5vh;
+        &_sub{
+            background-color: transparent;
+        font-family: 'Pacifico', cursive;
+    }
+    }
+}

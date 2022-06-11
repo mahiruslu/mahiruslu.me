@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
+import Projects from "./pages/Projects/Projects";
 import Error from "./pages/Error/Error";
 import Layout from "./pages/Layout/Layout";
 
@@ -11,6 +12,10 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            {/* <Route path="/blog" element={<Blog />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/contact" element={<Contact />} /> */}
             <Route path="*" element={<Error />} />
           </Routes>
         </Layout>

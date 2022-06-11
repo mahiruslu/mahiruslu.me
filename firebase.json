@@ -4,7 +4,7 @@
   },
   "hosting": {
     "site": "mahiruslu",
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
