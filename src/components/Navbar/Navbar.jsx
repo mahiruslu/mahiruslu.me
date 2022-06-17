@@ -24,8 +24,13 @@ function Navbar() {
   return (
     <nav className={Styles.nav}>
       <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
+        drag="y"
+        dragConstraints={{
+          top: -50,
+          left: -5,
+          right: 5,
+          bottom: 0,
+        }}
         className={Styles.nav_wrapper}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

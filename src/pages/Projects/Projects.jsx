@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Styles from "./Projects.module.scss";
 
-import { db } from "../../firebase.js";
-import { onValue, ref, set } from "firebase/database";
+import { db } from "../../utils/firebase";
+import { onValue, ref } from "firebase/database";
+import Project from "../../components/Project/Project";
 
 // console.log(fb.database);
 function Projects() {
@@ -24,13 +25,15 @@ function Projects() {
     });
   }, []);
   return (
-    <div>
+    <motion.div className={Styles.projects}>
       {projects.map((project, index) => (
-        <div key={index}>
-          {project.name} {project.date ? project.date : "tarih girilmemiş"}
-        </div>
+        <Project
+          {...project}
+          floatFrom={index % 2 === 0 ? "left" : "right"}
+          key={index}
+        />
       ))}
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,0 +1,21 @@
+*{
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+
+    margin: 0;
+    padding: 0;
+    h1{
+        font-family: 'Pacifico', cursive;
+        font-weight: bold;
+        font-size: 5vh;
+        margin: 0;
+    }
+}
+
+html{
+    margin-bottom: 500px;
+
+}

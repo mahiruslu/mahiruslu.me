@@ -1,24 +1,56 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Styles from "./Home.module.scss";
+import TypeWriterEffect from "react-typewriter-effect";
 
 function Home() {
   return (
     <div className={Styles.home}>
       <motion.div
-        drag="x y"
-        initial={{ opacity: 0.1, y: 200 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0.1, y: -200, width: "80%" }}
+        animate={{ opacity: 1, y: 0, width: "90%" }}
         transition={{ duration: 1 }}
         className={Styles.home_wrapper}
       >
-        <div className="">
+        <div className={Styles.home_top_container}>
           <h1 className={Styles.home_title}>Mahir Uslu</h1>
           <h2 className={Styles.home_title_sub}>Software Developer</h2>
+          <TypeWriterEffect
+            textStyle={{
+              fontFamily: "Red Hat Display",
+              color: "#3F3D56",
+              fontWeight: 500,
+              fontSize: "1.5em",
+            }}
+            startDelay={2000}
+            cursorColor="#3F3D56"
+            multiText={[
+              "Hey there, This is a type writer animation package",
+              "it consist of two types...",
+              "Single text display and multi text display",
+              "Fonts can be customized.",
+              "The type speed can be customized as well",
+            ]}
+            multiTextDelay={1000}
+            typeSpeed={30}
+          />
         </div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga minima
           qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          qui asperiores porro, molestias esse ducimus enim est eveniet labore
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
+          quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
           quos praesentium maiores cumque corporis aspernatur, quibusdam fugiat
           doloremque doloribus? Lorem Lorem ipsum dolor sit amet consectetur,
           adipisicing elit. Neque, deleniti saepe. Alias iste quasi repellat
