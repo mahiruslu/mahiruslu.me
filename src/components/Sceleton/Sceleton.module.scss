@@ -1,0 +1,109 @@
+.project{
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    // background-color: aquamarine;
+    width: 250px;
+    height: 300px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px 35px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    &_bottom{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-self: center;
+    }
+    &_type{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-self: flex-end;
+        // background-color: transparent;
+
+        text-transform: uppercase;
+        font-weight: bolder;
+        background: linear-gradient(to right, #58114e 0%, #190235 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &_name{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        // background-color: transparent;
+        
+        text-align: center;
+        text-transform: uppercase;
+        font-weight:bolder;
+        font-size: 2rem;
+        background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &_tags{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+        background-color: transparent;
+        & p{
+            background-color: transparent;
+            margin: 0;
+        }
+        &_tag{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-self: center;
+            margin: 5px;
+            padding: 5px;
+            border-width: 1px;
+            border-radius: 10px;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+            text-transform: uppercase;
+            font-size: small;
+            background-color: transparent;
+
+        }
+       
+    }
+
+    &_technologies{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-self: center;
+        background-color: transparent;
+        & p{
+            background-color: transparent;
+            margin: 0;
+        }
+        &_technology{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-self: center;
+            margin: 5px;
+            padding: 5px;
+            border-width: 1px;
+            border-radius: 10px;
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+            text-transform: uppercase;
+            font-size: small;
+            background-color: transparent;
+
+        }
+       
+    }
+
+}
