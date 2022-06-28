@@ -6,7 +6,7 @@ import {
   faFeather,
   faContactCard,
   faUser,
-  faLightbulb,
+  faLightbulb
 } from "@fortawesome/free-solid-svg-icons";
 // import {
 //   faTwitter,

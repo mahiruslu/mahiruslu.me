@@ -41,7 +41,7 @@
             background-color: transparent;
             transform: translate(-10px, -10px);
             padding: 10px;
-            color: #2155CD;
+            color: #fff;
             &_icon{
                 background-color: transparent;
                 transform: scale(2.1);
@@ -87,7 +87,7 @@
         justify-content: center;
         gap: 30px;
         border-radius: 16px;
-        background: rgba(83, 83, 83, 0.25);
+        background: rgba(83, 83, 83, 0.8);
         backdrop-filter: blur(13px);
         -webkit-backdrop-filter: blur(13px);
         border: 1px solid rgba(255, 255, 255, 0.18);

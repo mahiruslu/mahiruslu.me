@@ -15,7 +15,14 @@
     }
 }
 
-html{
-    margin-bottom: 500px;
-
+@media screen and (max-width: 768px) {
+    html{
+        margin-bottom: 600px;
+    }
 }
+
+@import "./global"
+, "./index"
+, "./mixins"
+, "./variables"
+, "./animations"

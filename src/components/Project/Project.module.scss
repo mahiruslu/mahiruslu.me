@@ -6,6 +6,7 @@
     align-items: flex-start;
 
     // background-color: aquamarine;
+    background-color: rgba($color: #fff, $alpha: 0.95);
     width: 250px;
     height: 300px;
     padding: 20px;
@@ -19,6 +20,7 @@
         flex-direction: column;
         justify-content: flex-end;
         align-self: center;
+        background-color: transparent;
     }
     &_type{
         display: flex;
@@ -40,11 +42,11 @@
         justify-content: center;
         align-self: center;
         // background-color: transparent;
-        
+        width: 100%;
         text-align: center;
         text-transform: uppercase;
         font-weight:bolder;
-        font-size: 2rem;
+        font-size: 1.7rem;
         background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
