@@ -29,8 +29,9 @@
         align-self: flex-end;
         // background-color: transparent;
 
-        text-transform: uppercase;
-        font-weight: bolder;
+        text-transform: capitalize;
+        font-weight: 500;
+        font-style: italic;
         background: linear-gradient(to right, #58114e 0%, #190235 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -45,8 +46,8 @@
         width: 100%;
         text-align: center;
         text-transform: uppercase;
-        font-weight:bolder;
-        font-size: 1.7rem;
+        font-weight: bolder;
+        font-size: 1.5rem;
         background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

@@ -29,12 +29,18 @@ function Projects() {
   }, []);
 
   return (
-    <motion.div className={Styles.projects}>
-      {loading && <Loader />}
-      {projects.map((project, index) => (
-        <Project {...project} key={index} />
-      ))}
-    </motion.div>
+    <>
+      <div className={Styles.projects_header}>
+        The projects I made, contributed or involved are listing
+      </div>
+      <motion.div className={Styles.projects}>
+        {loading && <Loader />}
+
+        {projects.map((project, index) => (
+          <Project {...project} key={index} />
+        ))}
+      </motion.div>
+    </>
   );
 }
 

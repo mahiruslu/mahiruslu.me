@@ -5,16 +5,14 @@ import { motion } from "framer-motion";
 function Error() {
   return (
     <motion.div
-      drag="x"
-      dragConstraints={{ left: 0, right: 0 }}
       className={Styles.container}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, bounce: 1 }}
     >
       <p className={Styles.message}>
-        Olmayan bir sayfaya ulaşmaya çalışıyorsun, merak ettiğin birşey varsa
-        bana ulaşmayı deneyebilirsin 🙂
+        The page you're trying to reach is not exist. You can reach me if you
+        want to know more about me! 🙂
       </p>
     </motion.div>
   );

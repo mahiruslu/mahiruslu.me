@@ -33,8 +33,8 @@ function Articles() {
       {loading && <Loader />}
       <h2>Articles</h2>
       <h4>When you click a box you'll be redirected to the medium's website</h4>
-      {articles.map((article) => (
-        <Article {...article} />
+      {articles.map((article, index) => (
+        <Article {...article} key={index} />
       ))}
     </motion.div>
   );

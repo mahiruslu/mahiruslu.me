@@ -1,7 +1,7 @@
 .article{
     width: 90%;
     max-width: 1000px;
-    min-height: 95px;
+    min-height: fit-content;
 
     color: white;
     cursor: pointer;
@@ -28,6 +28,7 @@
     &_tags{
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-self: center;
         background-color: transparent;
@@ -54,3 +55,4 @@
     }
 
 }
+
