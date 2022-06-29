@@ -12,7 +12,7 @@ import Loader from "../../components/Loader/Loader";
 function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     const query = ref(db, "projects");
     return onValue(query, (snapshot) => {
@@ -30,7 +30,7 @@ function Projects() {
 
   return (
     <motion.div className={Styles.projects}>
-      {loading && <Loader/>}
+      {loading && <Loader />}
       {projects.map((project, index) => (
         <Project {...project} key={index} />
       ))}
