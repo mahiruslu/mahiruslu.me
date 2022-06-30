@@ -18,6 +18,9 @@ body{
     
 }
 
+h2{
+    font-family: 'Pacifico', cursive;
+}
 
 svg{
     fill: currentColor;

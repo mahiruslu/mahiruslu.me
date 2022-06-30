@@ -19,9 +19,9 @@ function Projects() {
       const data = snapshot.val();
 
       if (snapshot.exists()) {
-        Object.values(data).map((project) => {
-          setProjects((projects) => [...projects, project]);
-        });
+        Object.values(data).map((project) =>
+          setProjects((projects) => [...projects, project])
+        );
       }
 
       setLoading(false);
@@ -29,18 +29,19 @@ function Projects() {
   }, []);
 
   return (
-    <>
+    <div className={Styles.projects}>
       <div className={Styles.projects_header}>
-        The projects I made, contributed or involved are listing
+        <h2>Projects</h2>
+        <p> The projects I made, contributed or involved are listing</p>
       </div>
-      <motion.div className={Styles.projects}>
+      <div className={Styles.projects_body}>
         {loading && <Loader />}
 
         {projects.map((project, index) => (
           <Project {...project} key={index} />
         ))}
-      </motion.div>
-    </>
+      </div>
+    </div>
   );
 }
 

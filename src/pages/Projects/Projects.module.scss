@@ -1,7 +1,6 @@
 .projects{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -11,7 +10,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         text-align: center;
+        font-weight: bolder;
+    }
+
+    &_body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
     }
     // background: url(../../assets/images/projects.jpg) center no-repeat fixed;
     // background-size: cover;
