@@ -12,11 +12,12 @@
         flex: 1;
         width: 100%;
         min-height: 200px;
+        height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        background-color: aqua;
+        // background-color: aqua;
     }
     
     &_bottom{
@@ -29,8 +30,8 @@
         align-items: flex-start;
         padding-top: 20px;
         gap: 10px;
-        background-color: salmon;
-
+        padding-bottom: 200px;
+        // background-color: salmon;
     }
 }
 .row{
