@@ -1,5 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 
+import classNames from "classnames/bind";
+
 import { motion } from "framer-motion";
 import Styles from "./Projects.module.scss";
 
@@ -7,6 +9,7 @@ import { db } from "../../utils/firebase";
 import { onValue, ref } from "firebase/database";
 import Project from "../../components/Project/Project";
 import Loader from "../../components/Loader/Loader";
+import Page from "../../components/Page/Page";
 
 // console.log(fb.database);
 function Projects() {
@@ -30,17 +33,17 @@ function Projects() {
 
   return (
     <div className={Styles.projects}>
-      <div className={Styles.projects_header}>
-        <h2>Projects</h2>
-        <p> The projects I made, contributed or involved are listing</p>
-      </div>
-      <div className={Styles.projects_body}>
+      <Page
+        title="Projects"
+        desc="
+        The projects I made, contributed or involved are listing
+          "
+      >
         {loading && <Loader />}
-
         {projects.map((project, index) => (
           <Project {...project} key={index} />
         ))}
-      </div>
+      </Page>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Article from "../../components/Article/Article";
 import Loader from "../../components/Loader/Loader";
 import Styles from "./Articles.module.scss";
 import { motion } from "framer-motion";
+import Page from "../../components/Page/Page";
 
 function Articles() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ function Articles() {
       .catch((e) => {
         console.log(e.message);
       });
-    return setLoading(false);
+    setLoading(false);
   }, []);
   return (
     <motion.div
@@ -30,12 +31,17 @@ function Articles() {
       transition={{ duration: 1 }}
       className={Styles.articles}
     >
-      {loading && <Loader />}
-      <h2>Articles</h2>
-      <h4>When you click a box you'll be redirected to the medium's website</h4>
-      {articles.map((article, index) => (
-        <Article {...article} key={index} />
-      ))}
+      <Page
+        title="Articles"
+        desc="
+          When you click a box you'll be redirected to the medium's website
+          "
+      >
+        {loading && <Loader />}
+        {articles.map((article, index) => (
+          <Article {...article} key={index} />
+        ))}
+      </Page>
     </motion.div>
   );
 }
