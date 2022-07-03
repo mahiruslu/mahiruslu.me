@@ -15,7 +15,7 @@ function Home() {
           <h1 className={Styles.home_title}>Mahir Uslu</h1>
           <h2 className={Styles.home_title_sub}>Software Developer</h2>
         </div>
-        <p>Merhaba!</p>
+        <p>Hi there 👋🏻</p>
       </motion.div>
     </div>
   );

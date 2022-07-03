@@ -5,9 +5,9 @@ function Article(props) {
   const { title, author, pubDate, categories, description, link } = props;
 
   const handleClick = () => {
-    console.log(link);
     window.open(link, "_blank");
   };
+
   return (
     <div className={Styles.article} onClick={handleClick}>
       <div className={Styles.article_date}>

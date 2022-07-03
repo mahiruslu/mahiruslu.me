@@ -20,13 +20,13 @@ function Projects() {
     const query = ref(db, "projects");
     return onValue(query, (snapshot) => {
       const data = snapshot.val();
+      // console.log(data);
 
       if (snapshot.exists()) {
         Object.values(data).map((project) =>
           setProjects((projects) => [...projects, project])
         );
       }
-
       setLoading(false);
     });
   }, []);
