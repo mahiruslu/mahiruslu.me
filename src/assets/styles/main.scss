@@ -22,11 +22,12 @@
     }
 }
 
-// @media screen and (max-width: 768px) {
-//     html{
-//         margin-bottom: 150px;
-//     }
-// }
+@media screen and (max-width: 768px) {
+    // html{
+    //     margin-bottom: 150px;
+    // }
+    
+}
 
 @import "./global"
 , "./index"

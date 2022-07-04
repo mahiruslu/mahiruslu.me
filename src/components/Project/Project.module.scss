@@ -9,7 +9,7 @@
     background-color: rgba($color: #F9F6EE, $alpha: 0.95);
     width: 250px;
     height: 300px;
-    padding: 20px;
+    padding: 25px 20px;
     margin: 20px;
     border-radius: 20px 35px;
 
@@ -27,7 +27,7 @@
         flex-direction: column-reverse;
         justify-content: center;
         align-self: flex-end;
-        // background-color: transparent;
+        background-color: black;
 
         text-transform: capitalize;
         font-weight: 500;
@@ -35,6 +35,8 @@
         background: linear-gradient(to right, #58114e 0%, #190235 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        transform:  translateX(20px) rotate(45deg);
     }
 
     &_name{
