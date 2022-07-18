@@ -1,0 +1,24 @@
+.button{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 140px;
+    height: 60px;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 0 0 0 1px #e6e6e6;
+    transition: box-shadow 0.2s ease-in-out;
+
+    text-transform: uppercase;
+    color: white;
+    font-size: larger;
+
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: 0 0 0 2px #e6e6e6;
+    }
+
+}
