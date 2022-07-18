@@ -6,7 +6,9 @@ import {
   faFeather,
   faContactCard,
   faUser,
-  faLightbulb
+  faLightbulb,
+  faTimeline,
+  faDiagramProject,
 } from "@fortawesome/free-solid-svg-icons";
 // import {
 //   faTwitter,
@@ -50,7 +52,7 @@ function Navbar() {
           <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
-              icon={faUser}
+              icon={faDiagramProject}
             />
           </div>
         </Link>

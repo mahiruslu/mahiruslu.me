@@ -10,7 +10,7 @@ function Home() {
         initial={{ opacity: 0.1 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className={Styles.home_wrapper}
+        className={Styles.home}
       >
         <Page
           title="Mahir Uslu"
