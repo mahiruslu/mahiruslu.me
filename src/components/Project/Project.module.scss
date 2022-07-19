@@ -27,12 +27,10 @@
         flex-direction: column-reverse;
         justify-content: center;
         align-self: flex-end;
-        background-color: black;
-
         text-transform: capitalize;
         font-weight: 500;
         font-style: italic;
-        background: linear-gradient(to right, #58114e 0%, #190235 100%);
+        background: linear-gradient(to right, #365dac 0%, #1d0885 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
@@ -73,6 +71,7 @@
             width: 70px;
             height: 30px;
             padding: 5px 10px;
+            cursor: pointer;
 
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
             border-radius: 5px;
@@ -143,6 +142,16 @@
 
         }
        
+    }
+
+    &_made{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-self: center;
+        height: 30px;
+        color: red;
+        text-decoration: dashed;
     }
 
 }

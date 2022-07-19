@@ -35,23 +35,23 @@ function Home() {
         </p>
         <div className={Styles.home_social_container}>
           <SocialButton link="https://www.instagram.com/hudoin">
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faInstagram} size="2x" width={"30px"} />
             Instagram
           </SocialButton>
           <SocialButton link="https://www.twitter.com/_hudoin">
-            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon icon={faTwitter} size="2x" width={"30px"} />
             Twitter
           </SocialButton>
           <SocialButton link="https://www.linkedin.com/in/mahiruslu">
-            <FontAwesomeIcon icon={faLinkedin} />
+            <FontAwesomeIcon icon={faLinkedin} size="2x" width={"30px"} />
             Linkedin
           </SocialButton>
           <SocialButton link="https://www.medium.com/@mahir.uslu">
-            <FontAwesomeIcon icon={faMedium} />
+            <FontAwesomeIcon icon={faMedium} size="2x" width={"30px"} />
             Medium
           </SocialButton>
           <SocialButton link="https://www.github.com/mahiruslu">
-            <FontAwesomeIcon icon={faGithub} />
+            <FontAwesomeIcon icon={faGithub} size="2x" width={"30px"} />
             Github
           </SocialButton>
         </div>

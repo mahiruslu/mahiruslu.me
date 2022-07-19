@@ -17,6 +17,7 @@ function Project(props) {
       className={Styles.project}
       key={name}
     >
+      {/* <div className={Styles.project_made}>Made 💪🏻</div> */}
       <div className={Styles.project_type}>#{type}</div>
       <div className={Styles.project_name}>{name}</div>
 
