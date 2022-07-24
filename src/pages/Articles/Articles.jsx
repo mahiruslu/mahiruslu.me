@@ -36,6 +36,7 @@ function Articles() {
         desc="
           When you click a box you'll be redirected to the medium's website
           "
+        direction="column"
       >
         {loading && <Loader />}
         {articles.map((article, index) => (
