@@ -48,7 +48,7 @@ function Navbar() {
           </div>
         </Link>
 
-        <Link className={Styles.nav_item} to="/profile">
+        <Link className={Styles.nav_item} to="/timeline">
           <div className={Styles.nav_item_button}>
             <FontAwesomeIcon
               className={Styles.nav_item_button_icon}
