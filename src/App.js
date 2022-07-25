@@ -6,6 +6,7 @@ import Timeline from "./pages/Timeline/Timeline";
 import Error from "./pages/Error/Error";
 import Layout from "./components/layout/Layout";
 import Articles from "./pages/Articles/Articles";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Articles />} />
-            {/* <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Layout>
