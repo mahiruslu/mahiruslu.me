@@ -33,7 +33,7 @@ function Home() {
           This site currently under construction. Not every section completed.
           Stay tuned for updates. Follow me on social media.
         </p>
-        <div className={Styles.home_social_container}>
+        {/* <div className={Styles.home_social_container}>
           <SocialButton link="https://www.instagram.com/hudoin">
             <FontAwesomeIcon icon={faInstagram} size="2x" width={"30px"} />
             Instagram
@@ -54,7 +54,7 @@ function Home() {
             <FontAwesomeIcon icon={faGithub} size="2x" width={"30px"} />
             Github
           </SocialButton>
-        </div>
+        </div> */}
       </Page>
     </motion.div>
   );

@@ -1,3 +1,342 @@
+@import "../../assets/styles/variables";
+
+.page{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    scroll-behavior: smooth;
+    height: fit-content;
+    padding-bottom: 100px;
+}
+.welcome{
+    height: 300px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h2{
+        color: $accent-color;
+        font-size: 1.75rem;
+    }
+    p{
+        font-size: 1.25rem;
+    }
+}
+
 .contact{
+    padding: 0;
+    margin: 10px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+    &_left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        flex: 3;
+        height: 100%;
+        min-width: 450px;
+        background-color: $base-color;
+        border-radius: 10px;
+        // border-top-right-radius: 10px;
+        // border-bottom-right-radius: 10px;
+        
+        // background: linear-gradient(270deg, $accent-color 0%, $secondary-color 0%, $tertiary-color 100%);
+
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='450' height='789' preserveAspectRatio='none' viewBox='0 0 450 789'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1013%26quot%3b)' fill='none'%3e%3crect width='450' height='789' x='0' y='0' fill='rgba(156%2c 190%2c 160%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c261.131C59.481%2c262.373%2c122.928%2c301.18%2c174.553%2c271.61C226.129%2c242.068%2c231.554%2c171.017%2c253.655%2c115.841C274.639%2c63.454%2c310.003%2c12.426%2c300.663%2c-43.229C291.377%2c-98.561%2c249.305%2c-143.439%2c204.481%2c-177.184C164.715%2c-207.121%2c109.805%2c-199.458%2c64.825%2c-220.773C7.644%2c-247.87%2c-30.218%2c-319.398%2c-93.486%2c-318.383C-156.867%2c-317.366%2c-209.557%2c-265.381%2c-248.977%2c-215.74C-287.46%2c-167.278%2c-310.473%2c-106.572%2c-310.826%2c-44.69C-311.156%2c13.205%2c-274.872%2c61.883%2c-250.859%2c114.564C-226.826%2c167.288%2c-219.959%2c235.185%2c-169.929%2c264.415C-120.001%2c293.586%2c-57.812%2c259.923%2c0%2c261.131' fill='%2372a378'%3e%3c/path%3e%3cpath d='M450 1061.883C500.636 1062.878 540.575 1023.424 584.844 998.821 632.483 972.345 697.613 961.991 719.529 912.09 741.454 862.169 697.112 808.474 692.296 754.163 687.0889999999999 695.44 726.006 627.703 690.16 580.9 654.614 534.489 581.7 547.3969999999999 524.542 535.134 472.109 523.885 420.48 498.189 368.641 511.918 316.299 525.781 284.106 574.371 243.058 609.683 194.089 651.809 110.37299999999999 674.989 104.32600000000002 739.3 98.19999999999999 804.453 173.995 845.744 216.154 895.794 247.184 932.633 279.251 965.696 318.52 993.587 359.617 1022.7760000000001 399.602 1060.893 450 1061.883' fill='%23c6d9c8'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1013'%3e%3crect width='450' height='789' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+        background-size: cover;
+        
+        &_top{
+
+            &_title{
+                font-weight: bold;
+                font-size: 2.3rem;
+                margin-bottom: 1rem;
+                color: $font-color-white;
+                text-transform: uppercase;
+
+                &_sub{
+                    font-weight: bold;
+                    font-size: 1.15rem;
+                    margin-bottom: 10px;
+                    color: $font-color-white;
+                }
+            }
+        }
+
+
+        &_middle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+
+            &_item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                
+                a{
+                    color: $font-color-white;
+                    text-decoration: none;
+                    font-size: 1.15rem;
+                    font-weight: bold;
+                    transition: all 0.3s ease-in-out;
+                    svg {
+                        width: 30px;
+                        padding-right: 10px;
+                      }
+                    &:hover {
+                        transform: scale(1.2);
+                      }
+                }
+            }
+        }
+
+        &_bottom{
+            // background-color: beige;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: flex-end;
+            // align-items: flex-end;
+            // width: 100%;
+            // flex: 1;
+        
+            &_circle{
+                width: 150px;
+                height: 150px;
+                border-radius: 100%;
+                background-color: aqua;
+                
+                &_half{
+                    width: 300px;
+                    height: 300px;
+                    border-radius: 100%;
+                    background-color: $nice-color;
+                    transform: translate(50%, 50%);
+                    overflow: hidden;
+                }
+            }
+        }
+  
+    }    
+
+    &_right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex: 5;
+        height: 100%;
+
+        &_form{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 80%;
+            transition: all .3s ease-in-out;
+            text-decoration: none;
+
+
+
+            &_item{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                text-align: center;
+                width: 40%;
+                gap: 20px;
+
+                label{
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: $tertiary-color;
+                    text-decoration: none;
+                    transition: all .3s ease-in-out;
+                }
+
+                &_full{
+                    width: 90%;
+
+                }
+                &_right{
+                    float: right;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    width: 95%;
+                    
+                }
+            }
+
+            input, textarea{
+                border: none;
+                -webkit-appearance: none;
+                width: 100%;
+                height: 40px;
+                border-bottom: 1px solid gray;
+                padding: 0 10px;
+                font-size: 1.2rem;
+                transition: all .3s ease-in-out;
+                color: $font-color-white;
+
+                &:focus{
+                    outline: none;
+                    border-bottom: 1px solid $base-color;
+                }
+            }
+
+            &_button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                border-radius: 10px;
+                border: 1px solid $base-color;
+                background-color: $base-color;
+                color: $font-color-white;
+                width: 150px;
+                height: 70px;
+                margin: 0 20px;
+                font-size: 1.3rem;
+                transition: all .3s ease-in-out;
+                cursor: pointer;
+
+                &:hover{
+                    transform: rotate(5deg);
+                }
+            }
+        }
+    }
+
+ 
+
+}
+
+.address{
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &_map{
+        height: 350px;
+        width: 80%;
+        // min-width: 300px;
+        border: 1px;
+        border-radius: 10px;
+        margin: 15px;
+        -webkit-box-shadow: -8px -7px 19px 0px $nice-color;
+        -moz-box-shadow: -8px -7px 19px 0px $nice-color;
+        box-shadow: -8px -7px 19px 0px $nice-color;
+        transition: all 0.5s ease-in-out;
+        background: transparent;
+        
+        iframe{
+            border-radius: 10px;
+            width: 100%;
+            // min-width: 300px;
+        }
+
+        &:hover{
+            box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem $base-color;
+            -webkit-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
+            -moz-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
+            transform: scale(1.05);
+        }
+    }
+}
+
+
+.error_message{
+    color: red;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+
+svg{
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .contact{
+        flex-direction: column;
+        width: 95%;
+        padding: 20px;
+        height: fit-content;
+
+        &_left{
+            min-width: 100%;
+            min-height: 600px;
+
+            &_top{
+
+                p{
+                    width: 95%;
+                }
+            }
+        }
+        &_right{
+            width: 100%;
+            min-height: 1000px;
+
+            &_form{
+                flex-direction: row;
+                &_item{
+                    width: 100%;
+                    padding: 20px 0px;
+                    &_full{
+                        width: 100%;
+                    }
+                }
+                &_button{
+                    margin: 0 0;
+                }
+            }
+        }
+    }
+    .address{
+        position: relative;
+        top:0;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    
+        &_map{
+            width: 90%;
+
+            iframe{
+                width: 100%;
+            }
+        }
+    }
     
 }
