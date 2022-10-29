@@ -73,19 +73,31 @@
             border-radius: 10px;
             margin: 15px;
             background: transparent;
+
+            h3{
+                font-size: 2.5vh;
+                font-weight: bold;
+                color: $font-color-white;
+                padding-bottom: 10px;
+            }
             
             iframe{
+                -webkit-box-shadow: -8px -7px 19px 0px $nice-color;
+                -moz-box-shadow: -8px -7px 19px 0px $nice-color;
+                box-shadow: -8px -7px 19px 0px $nice-color;
+                transition: all 0.5s ease-in-out;
                 border-radius: 10px;
                 width: 100%;
                 // min-width: 300px;
+                
+                &:hover{
+                    box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem $base-color;
+                    -webkit-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
+                    -moz-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
+                    transform: scale(1.05);
+                }
             }
     
-            &:hover{
-                box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem $base-color;
-                -webkit-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
-                -moz-box-shadow: 0.5rem 0.5rem $nice-color, -0.5rem -0.5rem #ccc;
-                transform: scale(1.05);
-            }
         }
     }
 }
