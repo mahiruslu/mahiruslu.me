@@ -69,8 +69,8 @@ function Contact() {
       className={Styles.page}
     >
       <div className={Styles.welcome}>
-        <h2>Contact Us</h2>
-        <p>Any question or remarks? Just write me a message.</p>
+        <h2>Contact with me</h2>
+        <p>Any question or project/job offer? Just write me a message.</p>
       </div>
       <div className={Styles.contact}>
         <div className={Styles.contact_left}>
