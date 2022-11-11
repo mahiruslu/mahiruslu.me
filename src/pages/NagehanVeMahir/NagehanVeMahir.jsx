@@ -20,12 +20,9 @@ function Home() {
       transition={{ duration: 1 }}
       className={Styles.home}
     >
-      <Page
-        title="Nagehan ve Mahir'in düğün bilgileri" 
-        desc="Aşağıda gerekli konum bilgilerini bulabilirsiniz."
-        direction="column"
-      >
-        <h3>Kız almaya saat 11:00'de erkek evinden hareket edilecektir.</h3>
+      <h2>Nagehan ve Mahir'in düğün bilgileri</h2>
+      <h3>Aşağıda gerekli konum bilgilerini bulabilirsiniz.</h3>
+      <h4>Kız almaya saat 11:00'de erkek evinden hareket edilecektir.</h4>
 
       <div className={Styles.home_address}>
         <div className={Styles.home_address_map}>
@@ -41,7 +38,7 @@ function Home() {
             title="harita"
           ></iframe>
         </div>
-        
+
         <div className={Styles.home_address_map}>
           <h3>Kız evi</h3>
           <iframe
@@ -55,7 +52,7 @@ function Home() {
             title="harita"
           ></iframe>
         </div>
-        
+
         <div className={Styles.home_address_map}>
           <h3>Düğün salonu</h3>
           <iframe
@@ -70,7 +67,6 @@ function Home() {
           ></iframe>
         </div>
       </div>
-      </Page>
     </motion.div>
   );
 }
