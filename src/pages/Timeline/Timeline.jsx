@@ -4,17 +4,21 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSchool,
-  faNetworkWired,
   faBriefcase,
   faClipboard,
+  faChild,
+  faLaptopCode,
 } from "@fortawesome/free-solid-svg-icons";
 import { db } from "../../utils/firebase";
 import { onValue, ref } from "firebase/database";
 import Loader from "../../components/Loader/Loader";
 import Style from "./Timeline.module.scss";
+
+library.add(faSchool, faBriefcase, faClipboard, faChild, faLaptopCode);
 
 function Timeline() {
   const [timelineElement, setTimelineElement] = useState([]);
@@ -48,18 +52,19 @@ function Timeline() {
               key={index}
               className="vertical-timeline-element--work"
               contentStyle={{
-                background: "rgb(33, 150, 243)",
-                color: "#fff",
+                background: "#fff",
+                color: "#000",
               }}
               contentArrowStyle={{
-                borderRight: "7px solid  rgb(33, 150, 243)",
+                borderRight: "7px solid  #fff",
               }}
               date={`${item.dateStart} - ${item.dateEnd || "present"}`}
-              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+              iconStyle={{ background: "#fff", color: "#000" }}
               icon={
-                <FontAwesomeIcon
-                  icon={item.type === "job" ? faBriefcase : faSchool}
-                />
+                // <FontAwesomeIcon
+                //   icon={item.type === "job" ? faBriefcase : faSchool}
+                // />
+                <FontAwesomeIcon icon={`fas fa-${item?.icon}`} />
               }
             >
               <h3 className="vertical-timeline-element-title">{item.title}</h3>

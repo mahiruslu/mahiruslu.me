@@ -32,7 +32,12 @@ function Projects() {
   }, []);
 
   return (
-    <div className={Styles.projects}>
+    <motion.div
+      initial={{ opacity: 0.1, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className={Styles.projects}
+    >
       <Page
         title="Projects"
         desc="
@@ -44,7 +49,7 @@ function Projects() {
           <Project {...project} key={index} />
         ))}
       </Page>
-    </div>
+    </motion.div>
   );
 }
 

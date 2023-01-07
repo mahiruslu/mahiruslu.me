@@ -63,8 +63,8 @@ function Contact() {
 
   return (
     <motion.div
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ opacity: 0.1, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, bounce: true }}
       className={Styles.page}
     >
@@ -90,31 +90,51 @@ function Contact() {
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://wa.me/+905556030033?chat" target="_blank" rel="noreferrer">
+              <a
+                href="https://wa.me/+905556030033?chat"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faWhatsapp} id="faIcon" />
                 Text me on Whatsapp
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://www.linkedin.com/in/mahiruslu/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.linkedin.com/in/mahiruslu/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faLinkedin} id="faIcon" />
                 Follow me on Linkedin
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://www.instagram.com/hudoin/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/hudoin/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faInstagram} id="faIcon" />
                 Follow me on Instagram
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://twitter.com/_hudoin" target="_blank" rel="noreferrer">
+              <a
+                href="https://twitter.com/_hudoin"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faTwitter} id="faIcon" />
                 Follow me on Twitter
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="mailto:mhrsl07@gmail.com" target="_blank" rel="noreferrer">
+              <a
+                href="mailto:mhrsl07@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FontAwesomeIcon icon={faMailBulk} id="faIcon" />
                 mhrsl07@gmail.com
               </a>
@@ -294,7 +314,6 @@ function Contact() {
 
         <ToastContainer draggablePercent={60} />
       </div>
-     
     </motion.div>
   );
 }

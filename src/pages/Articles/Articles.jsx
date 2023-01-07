@@ -26,8 +26,8 @@ function Articles() {
   }, []);
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0.1, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       className={Styles.articles}
     >
