@@ -9,7 +9,6 @@ function Article(props) {
     window.open(link, "_blank");
   };
 
-  console.log(pubDate);
 
   return (
     <div className={Styles.article} onClick={handleClick}>

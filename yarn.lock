@@ -4894,6 +4894,18 @@ emailjs-com@^3.2.0:
   resolved "https://registry.yarnpkg.com/emailjs-com/-/emailjs-com-3.2.0.tgz#a53cb22f1bc433c701c84c53d8b56eefd5ce7111"
   integrity sha512-Prbz3E1usiAwGjMNYRv6EsJ5c373cX7/AGnZQwOfrpNJrygQJ15+E9OOq4pU8yC977Z5xMetRfc3WmDX6RcjAA==
 
+embla-carousel-react@^7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-7.0.5.tgz#c6a079e382432335e34adb16bb11558df047760c"
+  integrity sha512-qhw980gKj7G+O5d3WSwj0TyhcbpGP3DqJPiAatt1t3wEEcZqn7csaIfLh4e1N/0kna9sZfZZRzz+//NSrUodSg==
+  dependencies:
+    embla-carousel "7.0.5"
+
+embla-carousel@7.0.5:
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-7.0.5.tgz#b43e590c072d06a5b11d4ce19d024f5f07a62862"
+  integrity sha512-loRcu0La0F7bhEMwbvgpi14iaaIEdwacH1xoplnaYfwN4KMgECkiuLgu4lx+v6MYd6lSpg/bw7ZxEuLUwYjavg==
+
 emittery@^0.10.2:
   version "0.10.2"
   resolved "https://registry.npmjs.org/emittery/-/emittery-0.10.2.tgz"

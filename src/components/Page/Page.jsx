@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 let cx = classNames.bind(Styles);
 
 function Page({ children, title, desc, direction }) {
-  console.log(direction);
   return (
     <motion.div
       className={Styles.Page}

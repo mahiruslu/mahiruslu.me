@@ -32,31 +32,40 @@ function Project(props) {
         )
       )} */}
       <div className={Styles.project_links}>
-        {Object.keys(links).map((key, index) => (
-          <div
-            onClick={() => handleClick(links[key])}
-            className={Styles.project_links_link}
-            key={index}
-          >
-            {key}
-          </div>
-        ))}
+        {links
+          ? Object.keys(links)?.map((key, index) => (
+              <div
+                onClick={() => handleClick(links[key])}
+                className={Styles.project_links_link}
+                key={index}
+              >
+                {key}
+              </div>
+            ))
+          : null}
       </div>
 
       <div className={Styles.project_bottom}>
         <div className={Styles.project_tags}>
-          {tags.map((tag, index) => (
-            <div className={Styles.project_tags_tag} key={index}>
-              {tag}
-            </div>
-          ))}
+          {tags
+            ? tags.map((tag, index) => (
+                <div className={Styles.project_tags_tag} key={index}>
+                  {tag}
+                </div>
+              ))
+            : null}
         </div>
         <div className={Styles.project_technologies}>
-          {technologies.map((technology, index) => (
-            <div className={Styles.project_technologies_technology} key={index}>
-              {technology}
-            </div>
-          ))}
+          {technologies
+            ? technologies.map((technology, index) => (
+                <div
+                  className={Styles.project_technologies_technology}
+                  key={index}
+                >
+                  {technology}
+                </div>
+              ))
+            : null}
         </div>
       </div>
     </motion.div>
