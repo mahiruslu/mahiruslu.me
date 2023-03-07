@@ -5,7 +5,7 @@
     justify-content: space-between;
     gap: 20px;
     padding: 0 20px;
-    width: 150px;
+    width: fit-content;
     height: 60px;
     border-radius: 20px;
     background-color: transparent;
@@ -14,14 +14,15 @@
 
     text-transform: uppercase;
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: larger;
 
     cursor: pointer;
     
 
     &:hover{
-        box-shadow: 0 0 0 2px #4d1616;
+        box-shadow: 0 0 0 2px #000;
+
     }
 
 }

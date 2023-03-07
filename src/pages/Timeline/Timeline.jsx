@@ -34,7 +34,7 @@ function Timeline() {
         Object.values(data).map((item) => {
           copyArray.push(item);
         });
-        copyArray.sort((a, b) => a.dateStart - b.dateStart);
+        copyArray.sort((a, b) => a.order - b.order);
         copyArray.reverse();
         setTimelineElement(copyArray);
       }

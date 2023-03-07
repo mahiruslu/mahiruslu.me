@@ -12,6 +12,8 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 
+import profilePhoto from "../../assets/images/profile.jpg";
+
 function Home() {
   return (
     <motion.div
@@ -20,42 +22,33 @@ function Home() {
       transition={{ duration: 1 }}
       className={Styles.home}
     >
-      <Page
-        title="Mahir Uslu"
-        desc="
-        Software Developer
-          "
-        direction="column"
-      >
-        <h3>Hi there 👋🏻</h3>
-        <br />
-        <p>
-          This site currently under construction. Not every section completed.
-          Stay tuned for updates. Follow me on social media.
+      <div className={Styles.home_profile}>
+        <img src={profilePhoto} alt="profile" />
+      </div>
+      <div className={Styles.home_content}>
+        <h1 className={Styles.home_content_title}>Hi, I'm Mahir</h1>
+        <p className={Styles.home_content_description}>
+          I'm a software engineer based in Turkey. I can build websites and
+          mobile applications.
         </p>
-        {/* <div className={Styles.home_social_container}>
-          <SocialButton link="https://www.instagram.com/hudoin">
-            <FontAwesomeIcon icon={faInstagram} size="2x" width={"30px"} />
-            Instagram
+        <div className={Styles.home_content_social}>
+          <SocialButton link="https://www.instagram.com/hudoin/">
+            <FontAwesomeIcon icon={faInstagram} width={25} />
           </SocialButton>
-          <SocialButton link="https://www.twitter.com/_hudoin">
-            <FontAwesomeIcon icon={faTwitter} size="2x" width={"30px"} />
-            Twitter
+          <SocialButton link="https://www.twitter.com/_hudoin/">
+            <FontAwesomeIcon icon={faTwitter} width={25} />
           </SocialButton>
-          <SocialButton link="https://www.linkedin.com/in/mahiruslu">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" width={"30px"} />
-            Linkedin
+          <SocialButton link="https://www.medium.com/@mahir.uslu/">
+            <FontAwesomeIcon icon={faMedium} width={25} />
           </SocialButton>
-          <SocialButton link="https://www.medium.com/@mahir.uslu">
-            <FontAwesomeIcon icon={faMedium} size="2x" width={"30px"} />
-            Medium
+          <SocialButton link="https://www.linkedin.com/in/mahiruslu/">
+            <FontAwesomeIcon icon={faLinkedin} width={25} />
           </SocialButton>
-          <SocialButton link="https://www.github.com/mahiruslu">
-            <FontAwesomeIcon icon={faGithub} size="2x" width={"30px"} />
-            Github
+          <SocialButton link="https://www.github.com/mahiruslu/">
+            <FontAwesomeIcon icon={faGithub} width={25} />
           </SocialButton>
-        </div> */}
-      </Page>
+        </div>
+      </div>
     </motion.div>
   );
 }

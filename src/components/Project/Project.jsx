@@ -10,13 +10,7 @@ function Project(props) {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0.1 }}
-      animate={{ opacity: 1 }}
-      transition={{ ease: "easeOut", duration: 1 }}
-      className={Styles.project}
-      key={name}
-    >
+    <div className={Styles.project} key={name}>
       {/* <div className={Styles.project_made}>Made 💪🏻</div> */}
       <div className={Styles.project_type}>#{type}</div>
       <div className={Styles.project_name}>{name}</div>
@@ -68,7 +62,7 @@ function Project(props) {
             : null}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
