@@ -29,7 +29,8 @@ function Home() {
         <h1 className={Styles.home_content_title}>Hi, I'm Mahir</h1>
         <p className={Styles.home_content_description}>
           I'm a software engineer based in Turkey. I can build websites and
-          mobile applications.
+          mobile applications with using Typescript, ReactJS, NodeJS and
+          React-Native.
         </p>
         <div className={Styles.home_content_social}>
           <SocialButton link="https://www.instagram.com/hudoin/">
