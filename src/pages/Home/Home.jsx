@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Styles from "./Home.module.scss";
-import Page from "../../components/Page/Page";
 import SocialButton from "../../components/SocialButton/SocialButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

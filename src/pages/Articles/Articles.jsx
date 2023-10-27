@@ -16,13 +16,13 @@ function Articles() {
         "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mahir.uslu"
       )
       .then((res) => {
-        console.log(res.data.items);
         setArticles(res.data.items);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e.message);
+        setLoading(false);
       });
-    setLoading(false);
   }, []);
   return (
     <motion.div
@@ -38,10 +38,11 @@ function Articles() {
           "
         direction="column"
       >
-        {loading && <Loader />}
-        {articles.map((article, index) => (
-          <Article {...article} key={index} />
-        ))}
+        {loading ? (
+          <Loader />
+        ) : (
+          articles.map((article, index) => <Article {...article} key={index} />)
+        )}
       </Page>
     </motion.div>
   );
