@@ -1,54 +1,88 @@
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
+import Typewriter from "react-typewriter-effect";
 import Styles from "./Home.module.scss";
-import SocialButton from "../../components/SocialButton/SocialButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faTwitter,
-  faLinkedin,
-  faMedium,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
 
-import profilePhoto from "../../assets/images/profile.jpg";
+
 
 function Home() {
   return (
     <motion.div
-      initial={{ opacity: 0.1, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
       className={Styles.home}
     >
-      <div className={Styles.home_profile}>
-        <img src={profilePhoto} alt="profile" />
-      </div>
-      <div className={Styles.home_content}>
-        <h1 className={Styles.home_content_title}>Hi, I'm Mahir</h1>
-        <p className={Styles.home_content_description}>
-          I'm a software engineer based in Turkey. I can build websites and
-          mobile applications with using Typescript, ReactJS, NodeJS and
-          React-Native.
-        </p>
-        <div className={Styles.home_content_social}>
-          <SocialButton link="https://www.instagram.com/hudoin/">
-            <FontAwesomeIcon icon={faInstagram} width={25} />
-          </SocialButton>
-          <SocialButton link="https://www.twitter.com/_hudoin/">
-            <FontAwesomeIcon icon={faTwitter} width={25} />
-          </SocialButton>
-          <SocialButton link="https://www.medium.com/@mahir.uslu/">
-            <FontAwesomeIcon icon={faMedium} width={25} />
-          </SocialButton>
-          <SocialButton link="https://www.linkedin.com/in/mahiruslu/">
-            <FontAwesomeIcon icon={faLinkedin} width={25} />
-          </SocialButton>
-          <SocialButton link="https://www.github.com/mahiruslu/">
-            <FontAwesomeIcon icon={faGithub} width={25} />
-          </SocialButton>
+      <div className={Styles.home_background}>
+        <div className={Styles.floating_shapes}>
+          <div className={Styles.shape1}></div>
+          <div className={Styles.shape2}></div>
+          <div className={Styles.shape3}></div>
         </div>
       </div>
+
+      <motion.div 
+        className={Styles.home_content}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        <h1 className={Styles.home_content_title}>
+          <Typewriter
+            text="Merhaba, ben Mahir Uslu"
+            cursorColor="#6366f1"
+            typeSpeed={100}
+            startDelay={1200}
+            hideCursorAfterText={true}
+          />
+        </h1>
+
+        <motion.div 
+          className={Styles.subtitle_container}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 2.5 }}
+        >
+          <h2 className={Styles.subtitle}>
+            <Typewriter
+              text="Full Stack Developer"
+              cursorColor="#8b5cf6"
+              typeSpeed={75}
+              startDelay={2800}
+              hideCursorAfterText={true}
+            />
+          </h2>
+        </motion.div>
+
+        <motion.div 
+          className={Styles.description_container}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 4.2 }}
+        >
+          <p className={Styles.home_content_description}>
+            <Typewriter
+              text="Türkiye merkezli bir yazılım geliştiricisiyim. TypeScript, React, Node.js ve React Native kullanarak modern web ve mobil uygulamalar geliştiriyorum."
+              cursorColor="#ffffff"
+              typeSpeed={25}
+              startDelay={4500}
+              hideCursorAfterText={true}
+            />
+          </p>
+        </motion.div>
+
+        <motion.div 
+          className={Styles.tech_stack}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 4.8 }}
+        >
+          <span className={Styles.tech_item}>React</span>
+          <span className={Styles.tech_item}>TypeScript</span>
+          <span className={Styles.tech_item}>Node.js</span>
+          <span className={Styles.tech_item}>React Native</span>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }

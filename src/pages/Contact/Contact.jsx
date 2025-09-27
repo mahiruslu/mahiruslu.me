@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import Styles from "./Contact.module.scss";
-import Loader from "../../components/Loader/Loader";
-import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
+  faGithub,
   faLinkedin,
-  faWhatsapp,
+  faMedium
 } from "@fortawesome/free-brands-svg-icons";
-import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import Loader from "../../components/Loader/Loader";
+import Styles from "./Contact.module.scss";
 
 import classNames from "classnames/bind";
-import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
 import {
-  toastifySuccess,
   ToastContainer,
   toastifyError,
+  toastifySuccess,
 } from "../../utils/hooks/useToastify";
 
 function Contact() {
@@ -83,22 +81,7 @@ function Contact() {
             </p>
           </div>
           <div className={Styles.contact_left_middle}>
-            <div className={Styles.contact_left_middle_item}>
-              <a href="tel:+90 555 603 00 33" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faPhone} id="faIcon" />
-                +90 555 603 00 33
-              </a>
-            </div>
-            <div className={Styles.contact_left_middle_item}>
-              <a
-                href="https://wa.me/+905556030033?chat"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faWhatsapp} id="faIcon" />
-                Text me on Whatsapp
-              </a>
-            </div>
+
             <div className={Styles.contact_left_middle_item}>
               <a
                 href="https://www.linkedin.com/in/mahiruslu/"
@@ -111,32 +94,32 @@ function Contact() {
             </div>
             <div className={Styles.contact_left_middle_item}>
               <a
-                href="https://www.instagram.com/hudoin/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faInstagram} id="faIcon" />
-                Follow me on Instagram
-              </a>
-            </div>
-            <div className={Styles.contact_left_middle_item}>
-              <a
-                href="https://twitter.com/_hudoin"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faTwitter} id="faIcon" />
-                Follow me on Twitter
-              </a>
-            </div>
-            <div className={Styles.contact_left_middle_item}>
-              <a
                 href="mailto:mhrsl07@gmail.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 <FontAwesomeIcon icon={faMailBulk} id="faIcon" />
-                mhrsl07@gmail.com
+                Send me an email
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a
+                href="https://www.medium.com/@mahir.uslu/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faMedium} id="faIcon" />
+                Follow me on Medium
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a
+                href="https://www.github.com/mahiruslu/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon icon={faGithub} id="faIcon" />
+                Follow me on Github
               </a>
             </div>
           </div>
