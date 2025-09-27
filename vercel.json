@@ -1,9 +1,5 @@
 {
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "@vercel/node@18.x"
-    }
-  },
   "buildCommand": "npm run build",
-  "outputDirectory": "build"
+  "outputDirectory": "build",
+  "framework": "create-react-app"
 }
