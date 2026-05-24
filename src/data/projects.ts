@@ -41,7 +41,7 @@ export const projects: Project[] = [
     slug: "besiktas-jk-mobile",
     name: "Besiktas JK Mobile",
     type: "Mobile App",
-    year: "2025",
+    year: "2024",
     description:
       "Production mobile application work for Besiktas JK, including reliable In-App Purchase flows, debugging, edge-case handling, and delivery of user-facing enhancements.",
     tags: ["sports tech", "iap", "mobile", "professional"],
@@ -81,7 +81,7 @@ export const projects: Project[] = [
   },
   {
     slug: "akbank-atm",
-    name: "Akbank ATM Interfaces",
+    name: "Akbank ATM Interface",
     type: "Web app",
     year: "2022",
     description:
