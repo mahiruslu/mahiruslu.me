@@ -29,7 +29,7 @@ export default function TimelinePage() {
       <ol className="mt-14 border-l-2 border-ink">
         {timeline.map((item) => (
           <li key={`${item.order}-${item.name}`} className="relative pl-7">
-            <div className="absolute -left-[11px] top-2 h-5 w-5 border-2 border-ink bg-acid" />
+            <div className="absolute -left-[11px] top-2 h-5 w-5 border-2 border-ink bg-acid text-[var(--on-acid)]" />
             <article className="grid gap-5 border-b-2 border-ink pb-9 pt-1 md:grid-cols-[minmax(180px,0.42fr)_1fr]">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-signal">

@@ -3,10 +3,10 @@
 @theme {
   --color-ink: #0b0f10;
   --color-ink-soft: #1d272a;
-  --color-paper: #f7f2e8;
-  --color-paper-muted: #e7dfd0;
+  --color-paper: #f1eadc;
+  --color-paper-muted: #dfd4c1;
   --color-steel: #6f8791;
-  --color-acid: #b7ff3c;
+  --color-acid: #89c91d;
   --color-signal: #ff4f3f;
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -16,6 +16,41 @@
   color-scheme: light;
   --header-height: 76px;
   --grid-line: color-mix(in oklab, var(--color-ink) 10%, transparent);
+  --shadow-ink: #0b0f10;
+  --shadow-paper: #f1eadc;
+  --field-bg: #faf2e3;
+  --footer-bg: #0b0f10;
+  --footer-fg: #f1eadc;
+  --on-acid: #0b0f10;
+  --on-signal: #f1eadc;
+  --grain-dot: rgb(11 15 16 / 0.28);
+  --ambient-acid: color-mix(in oklab, var(--color-acid) 18%, transparent);
+  --ambient-signal: color-mix(in oklab, var(--color-signal) 13%, transparent);
+  --theme-toggle-x: 50vw;
+  --theme-toggle-y: 50vh;
+  --theme-toggle-radius: 100vmax;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-ink: #efe7d8;
+  --color-ink-soft: #d5cab8;
+  --color-paper: #0f1415;
+  --color-paper-muted: #1c2527;
+  --color-steel: #97adb4;
+  --color-acid: #96d329;
+  --color-signal: #ff6657;
+  --grid-line: color-mix(in oklab, var(--color-ink) 13%, transparent);
+  --shadow-ink: #efe7d8;
+  --shadow-paper: #efe7d8;
+  --field-bg: #151c1e;
+  --footer-bg: #050707;
+  --footer-fg: #efe7d8;
+  --on-acid: #0b0f10;
+  --on-signal: #0b0f10;
+  --grain-dot: rgb(245 240 230 / 0.18);
+  --ambient-acid: color-mix(in oklab, var(--color-acid) 12%, transparent);
+  --ambient-signal: color-mix(in oklab, var(--color-signal) 11%, transparent);
 }
 
 * {
@@ -38,6 +73,9 @@ body {
   color: var(--color-ink);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
   -webkit-tap-highlight-color: rgb(255 79 63 / 0.22);
 }
 
@@ -48,8 +86,8 @@ body::before {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(110deg, transparent 0 58%, rgb(183 255 60 / 0.16) 58% 63%, transparent 63%),
-    linear-gradient(175deg, transparent 0 70%, rgb(255 79 63 / 0.12) 70% 73%, transparent 73%);
+    linear-gradient(110deg, transparent 0 58%, var(--ambient-acid) 58% 63%, transparent 63%),
+    linear-gradient(175deg, transparent 0 70%, var(--ambient-signal) 70% 73%, transparent 73%);
 }
 
 @layer base {
@@ -100,13 +138,42 @@ body::before {
   z-index: -1;
   pointer-events: none;
   opacity: 0.24;
-  background-image: radial-gradient(circle at 1px 1px, rgb(11 15 16 / 0.28) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, var(--grain-dot) 1px, transparent 0);
   background-size: 13px 13px;
   mix-blend-mode: multiply;
 }
 
+[data-theme="dark"] .grain {
+  mix-blend-mode: screen;
+}
+
 .text-balance {
   text-wrap: balance;
+}
+
+html[data-theme-transition="active"]::view-transition-old(root),
+html[data-theme-transition="active"]::view-transition-new(root) {
+  animation-duration: 560ms;
+  animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  mix-blend-mode: normal;
+}
+
+html[data-theme-transition="active"]::view-transition-old(root) {
+  animation: none;
+}
+
+html[data-theme-transition="active"]::view-transition-new(root) {
+  animation-name: theme-reveal;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--theme-toggle-x) var(--theme-toggle-y));
+  }
+
+  to {
+    clip-path: circle(var(--theme-toggle-radius) at var(--theme-toggle-x) var(--theme-toggle-y));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -117,5 +184,10 @@ body::before {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  html[data-theme-transition="active"]::view-transition-old(root),
+  html[data-theme-transition="active"]::view-transition-new(root) {
+    animation: none !important;
   }
 }

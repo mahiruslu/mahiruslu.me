@@ -13,13 +13,13 @@ export default function NotFound() {
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
-          className="border-2 border-ink bg-ink px-5 py-3 font-bold text-paper transition hover:-translate-y-1 hover:bg-signal"
+          className="border-2 border-ink bg-ink px-5 py-3 font-bold text-paper transition hover:-translate-y-1 hover:bg-signal hover:text-[var(--on-signal)]"
           href="/"
         >
           Home
         </Link>
         <Link
-          className="border-2 border-ink bg-paper px-5 py-3 font-bold transition hover:-translate-y-1 hover:bg-acid"
+          className="border-2 border-ink bg-paper px-5 py-3 font-bold transition hover:-translate-y-1 hover:bg-acid hover:text-[var(--on-acid)]"
           href="/projects"
         >
           Projects

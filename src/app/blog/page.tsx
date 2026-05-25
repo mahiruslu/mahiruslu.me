@@ -36,14 +36,14 @@ export default async function BlogPage() {
       />
 
       {error ? (
-        <div className="mt-10 border-2 border-ink bg-signal px-5 py-4 font-bold text-paper shadow-[8px_8px_0_#0b0f10]">
+        <div className="mt-10 border-2 border-ink bg-signal px-5 py-4 font-bold text-[var(--on-signal)] shadow-[8px_8px_0_var(--shadow-ink)]">
           Medium is not responding right now. Direct profile links are still
           available below.
         </div>
       ) : null}
 
       {posts.length === 0 ? (
-        <div className="mt-10 border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_#0b0f10]">
+        <div className="mt-10 border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--shadow-ink)]">
           <p className="text-lg font-bold">No articles are available.</p>
           <p className="mt-2 text-ink-soft">
             Medium may be temporarily unavailable.
@@ -59,7 +59,7 @@ export default async function BlogPage() {
           {posts.map((post) => (
             <article
               key={post.link}
-              className="group border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_#0b0f10] transition hover:-translate-y-1 hover:bg-acid"
+              className="group border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--shadow-ink)] transition hover:-translate-y-1 hover:bg-acid hover:text-[var(--on-acid)]"
             >
               <p className="text-sm font-black uppercase tracking-[0.16em] text-steel group-hover:text-ink">
                 {dateFormatter.format(new Date(post.publishedAt))}

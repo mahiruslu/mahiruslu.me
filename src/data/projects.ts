@@ -17,6 +17,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "kyc-sdk-android",
+    name: "KYC SDK",
+    type: "Mobile App",
+    year: "2026",
+    description:
+      "Internal native Android KYC SDK work built with Kotlin, focused on identity verification flows, secure document capture, lifecycle-safe integration, and reliable host-app embedding.",
+    tags: ["kyc", "android", "kotlin", "internal"],
+    technologies: ["Kotlin", "Android SDK", "Native Android", "KYC"],
+    links: [],
+    source: "professional",
+  },
+  {
     slug: "swallet-samsung",
     name: "S Wallet",
     type: "Mobile App",

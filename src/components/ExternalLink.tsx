@@ -8,7 +8,7 @@ type ExternalLinkProps = {
 export function ExternalLink({ href, children }: ExternalLinkProps) {
   return (
     <a
-      className="inline-flex min-h-11 items-center gap-2 border-2 border-ink bg-paper px-4 py-2 font-bold shadow-[4px_4px_0_#0b0f10] transition hover:-translate-y-0.5 hover:bg-acid"
+      className="inline-flex min-h-11 items-center gap-2 border-2 border-ink bg-paper px-4 py-2 font-bold shadow-[4px_4px_0_var(--shadow-ink)] transition hover:-translate-y-0.5 hover:bg-acid hover:text-[var(--on-acid)]"
       href={href}
       target="_blank"
       rel="noreferrer"

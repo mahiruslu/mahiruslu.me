@@ -16,7 +16,7 @@ export default function HomePage() {
       <section className="grid min-h-[calc(100svh-var(--header-height)-32px)] grid-rows-[1fr_auto] gap-10">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
           <MotionReveal className="space-y-8">
-            <div className="inline-flex border-2 border-ink bg-acid px-3 py-2 text-sm font-black uppercase tracking-[0.18em] shadow-[6px_6px_0_#0b0f10]">
+            <div className="inline-flex border-2 border-ink bg-acid px-3 py-2 text-sm font-black uppercase tracking-[0.18em] text-[var(--on-acid)] shadow-[6px_6px_0_var(--shadow-ink)]">
               {profileData.role}
             </div>
             <div className="space-y-5">
@@ -26,12 +26,12 @@ export default function HomePage() {
               <p className="max-w-3xl text-xl font-medium leading-8 text-ink-soft sm:text-2xl sm:leading-9">
                 I build production web and mobile products from{" "}
                 {profileData.location}, currently aligned with{" "}
-                {profileData.currentCompany}. My work spans React, React
-                Native, TypeScript, Node.js, product interfaces, and reliable
+                {profileData.currentCompany}. My work spans React, React Native,
+                TypeScript, Kotlin, Node.js, product interfaces, and reliable
                 delivery.
               </p>
             </div>
-            <dl className="grid max-w-2xl grid-cols-3 border-2 border-ink bg-paper shadow-[7px_7px_0_#0b0f10]">
+            <dl className="grid max-w-2xl grid-cols-3 border-2 border-ink bg-paper shadow-[7px_7px_0_var(--shadow-ink)]">
               <div className="border-r-2 border-ink p-4">
                 <dt className="text-xs font-black uppercase tracking-[0.14em] text-steel">
                   GitHub
@@ -39,7 +39,9 @@ export default function HomePage() {
                 <dd className="mt-1 font-display text-4xl font-black">
                   {profileData.github.publicRepos}
                 </dd>
-                <dd className="text-sm font-bold text-ink-soft">public repos</dd>
+                <dd className="text-sm font-bold text-ink-soft">
+                  public repos
+                </dd>
               </div>
               <div className="border-r-2 border-ink p-4">
                 <dt className="text-xs font-black uppercase tracking-[0.14em] text-steel">
@@ -55,18 +57,20 @@ export default function HomePage() {
                   Status
                 </dt>
                 <dd className="mt-2 text-lg font-black">Hireable</dd>
-                <dd className="text-sm font-bold text-ink-soft">GitHub signal</dd>
+                <dd className="text-sm font-bold text-ink-soft">
+                  GitHub signal
+                </dd>
               </div>
             </dl>
             <div className="flex flex-wrap gap-3">
               <Link
-                className="border-2 border-ink bg-ink px-5 py-3 font-bold text-paper transition hover:-translate-y-1 hover:bg-signal focus-visible:bg-signal"
+                className="border-2 border-ink bg-ink px-5 py-3 font-bold text-paper transition hover:-translate-y-1 hover:bg-signal hover:text-[var(--on-signal)] focus-visible:bg-signal focus-visible:text-[var(--on-signal)]"
                 href="/projects"
               >
                 View projects
               </Link>
               <Link
-                className="border-2 border-ink bg-paper px-5 py-3 font-bold text-ink transition hover:-translate-y-1 hover:bg-acid"
+                className="border-2 border-ink bg-paper px-5 py-3 font-bold text-ink transition hover:-translate-y-1 hover:bg-acid hover:text-[var(--on-acid)]"
                 href="/contact"
               >
                 Start a conversation
@@ -75,8 +79,8 @@ export default function HomePage() {
           </MotionReveal>
 
           <MotionReveal delay={0.12} className="relative">
-            <div className="absolute -left-4 top-8 hidden h-24 w-24 border-2 border-ink bg-signal shadow-[6px_6px_0_#0b0f10] lg:block" />
-            <div className="relative ml-auto max-w-[520px] border-2 border-ink bg-paper p-3 shadow-[12px_12px_0_#0b0f10]">
+            <div className="absolute -left-4 top-8 hidden h-24 w-24 border-2 border-ink bg-signal shadow-[6px_6px_0_var(--shadow-ink)] lg:block" />
+            <div className="relative ml-auto max-w-[520px] border-2 border-ink bg-paper p-3 shadow-[12px_12px_0_var(--shadow-ink)]">
               <Image
                 src={profile}
                 alt="Portrait of Mahir Uslu"
@@ -111,7 +115,7 @@ export default function HomePage() {
               <Link
                 href="/projects"
                 key={project.slug}
-                className="group flex items-center justify-between gap-4 border-2 border-ink bg-paper px-4 py-3 transition hover:-translate-y-1 hover:bg-acid"
+                className="group flex items-center justify-between gap-4 border-2 border-ink bg-paper px-4 py-3 transition hover:-translate-y-1 hover:bg-acid hover:text-[var(--on-acid)]"
               >
                 <span className="font-bold">{project.name}</span>
                 <span className="text-sm font-semibold text-steel group-hover:text-ink">

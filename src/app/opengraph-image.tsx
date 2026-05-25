@@ -18,7 +18,7 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f7f2e8",
+          background: "#f1eadc",
           color: "#0b0f10",
           padding: 64,
           border: "18px solid #0b0f10",
@@ -71,7 +71,7 @@ export default function OpenGraphImage() {
         >
           <span
             style={{
-              background: "#b7ff3c",
+              background: "#89c91d",
               border: "4px solid #0b0f10",
               padding: "12px 18px",
             }}
@@ -81,7 +81,7 @@ export default function OpenGraphImage() {
           <span
             style={{
               background: "#ff4f3f",
-              color: "#f7f2e8",
+              color: "#f1eadc",
               border: "4px solid #0b0f10",
               padding: "12px 18px",
             }}

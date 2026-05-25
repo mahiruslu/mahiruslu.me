@@ -91,7 +91,7 @@ export function ContactForm() {
 
   return (
     <form
-      className="border-2 border-ink bg-paper p-4 shadow-[10px_10px_0_#0b0f10] sm:p-6"
+      className="border-2 border-ink bg-paper p-4 shadow-[10px_10px_0_var(--shadow-ink)] sm:p-6"
       onSubmit={handleSubmit}
       noValidate
     >
@@ -117,7 +117,7 @@ export function ContactForm() {
               spellCheck={field.name === "email" ? false : undefined}
               aria-invalid={errors[field.name] ? "true" : "false"}
               aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-              className="min-h-12 w-full border-2 border-ink bg-white px-3 py-2 font-medium text-ink placeholder:text-steel"
+              className="min-h-12 w-full border-2 border-ink bg-[var(--field-bg)] px-3 py-2 font-medium text-ink placeholder:text-steel"
             />
             {errors[field.name] ? (
               <p
@@ -147,7 +147,7 @@ export function ContactForm() {
             autoComplete="off"
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="min-h-40 w-full resize-y border-2 border-ink bg-white px-3 py-2 font-medium text-ink placeholder:text-steel"
+            className="min-h-40 w-full resize-y border-2 border-ink bg-[var(--field-bg)] px-3 py-2 font-medium text-ink placeholder:text-steel"
           />
           {errors.message ? (
             <p id="message-error" className="font-bold text-signal" aria-live="polite">
@@ -158,7 +158,7 @@ export function ContactForm() {
       </div>
 
       <button
-        className="mt-6 min-h-12 border-2 border-ink bg-ink px-5 py-3 font-black text-paper shadow-[5px_5px_0_#ff4f3f] transition hover:-translate-y-0.5 hover:bg-signal"
+        className="mt-6 min-h-12 border-2 border-ink bg-ink px-5 py-3 font-black text-paper shadow-[5px_5px_0_var(--color-signal)] transition hover:-translate-y-0.5 hover:bg-signal hover:text-[var(--on-signal)]"
         type="submit"
       >
         Open WhatsApp

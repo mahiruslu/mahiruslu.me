@@ -1,6 +1,6 @@
 export const profile = {
   name: "Mahir Uslu",
-  role: "Senior Frontend Developer",
+  role: "Senior Software Developer",
   currentCompany: "Innovance Consultancy",
   location: "Konya, Türkiye",
   website: "mahiruslu.com",

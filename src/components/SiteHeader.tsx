@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -50,43 +51,48 @@ export function SiteHeader() {
           className="group flex min-h-11 shrink-0 items-center gap-3 font-black"
           aria-label="Mahir Uslu home"
         >
-          <span className="grid h-9 w-9 place-items-center border-2 border-ink bg-acid shadow-[4px_4px_0_#0b0f10] transition group-hover:-translate-y-0.5">
+          <span className="grid h-9 w-9 place-items-center border-2 border-ink bg-acid text-[var(--on-acid)] shadow-[4px_4px_0_var(--shadow-ink)] transition group-hover:-translate-y-0.5">
             MU
           </span>
           <span className="hidden sm:inline">Mahir Uslu</span>
         </Link>
 
-        <button
-          type="button"
-          className="grid min-h-11 min-w-11 place-items-center border-2 border-ink bg-paper shadow-[4px_4px_0_#0b0f10] transition hover:-translate-y-0.5 hover:bg-acid md:hidden"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-controls={menuId}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
-        >
-          <span className="relative block h-4 w-6" aria-hidden="true">
-            <span
-              className={`absolute left-0 h-0.5 w-6 bg-ink transition-transform ${
-                isOpen ? "top-2 rotate-45" : "top-0"
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-2 h-0.5 w-6 bg-ink transition-opacity ${
-                isOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute left-0 h-0.5 w-6 bg-ink transition-transform ${
-                isOpen ? "top-2 -rotate-45" : "top-4"
-              }`}
-            />
-          </span>
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="grid min-h-11 min-w-11 place-items-center border-2 border-ink bg-paper shadow-[4px_4px_0_var(--shadow-ink)] transition hover:-translate-y-0.5 hover:bg-acid"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-controls={menuId}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((current) => !current)}
+          >
+            <span className="relative block h-4 w-6" aria-hidden="true">
+              <span
+                className={`absolute left-0 h-0.5 w-6 bg-ink transition-transform ${
+                  isOpen ? "top-2 rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-2 h-0.5 w-6 bg-ink transition-opacity ${
+                  isOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute left-0 h-0.5 w-6 bg-ink transition-transform ${
+                  isOpen ? "top-2 -rotate-45" : "top-4"
+                }`}
+              />
+            </span>
+          </button>
+        </div>
 
-        <div className="hidden max-w-full flex-wrap items-center justify-center gap-1 rounded-[28px] border-2 border-ink bg-paper p-2 shadow-[6px_6px_0_#0b0f10] md:flex md:justify-end">
+        <div className="hidden max-w-full flex-wrap items-center justify-center gap-1 rounded-[28px] border-2 border-ink bg-paper p-2 shadow-[6px_6px_0_var(--shadow-ink)] md:flex md:justify-end">
           {navItems.map((item) => {
             const isActive =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
 
             return (
               <Link
@@ -96,13 +102,14 @@ export function SiteHeader() {
                 className={`min-h-10 whitespace-nowrap rounded-[20px] border-2 px-3 py-2 text-xs font-black uppercase tracking-[0.06em] transition hover:-translate-y-0.5 min-[420px]:text-sm sm:px-4 md:text-base ${
                   isActive
                     ? "border-ink bg-ink text-paper"
-                    : "border-transparent hover:border-ink hover:bg-acid"
+                    : "border-transparent hover:border-ink hover:bg-acid hover:text-[var(--on-acid)]"
                 }`}
               >
                 {item.label}
               </Link>
             );
           })}
+          <ThemeToggle />
         </div>
       </nav>
 
@@ -125,24 +132,27 @@ export function SiteHeader() {
                 className="flex min-h-11 items-center gap-3 font-black"
                 aria-label="Mahir Uslu home"
               >
-                <span className="grid h-9 w-9 place-items-center border-2 border-paper bg-acid text-ink shadow-[4px_4px_0_#f7f2e8]">
+                <span className="grid h-9 w-9 place-items-center border-2 border-paper bg-acid text-ink shadow-[4px_4px_0_var(--shadow-paper)]">
                   MU
                 </span>
                 <span>Mahir Uslu</span>
               </Link>
 
-              <button
-                type="button"
-                className="grid min-h-11 min-w-11 place-items-center border-2 border-paper bg-ink text-paper shadow-[4px_4px_0_#f7f2e8] transition hover:-translate-y-0.5 hover:bg-acid hover:text-ink"
-                aria-label="Close navigation menu"
-                tabIndex={isOpen ? 0 : -1}
-                onClick={() => setIsOpen(false)}
-              >
-                <span className="relative block h-4 w-6" aria-hidden="true">
-                  <span className="absolute left-0 top-2 h-0.5 w-6 rotate-45 bg-current" />
-                  <span className="absolute left-0 top-2 h-0.5 w-6 -rotate-45 bg-current" />
-                </span>
-              </button>
+              <div className="flex items-center gap-3">
+                <ThemeToggle variant="inverted" />
+                <button
+                  type="button"
+                  className="grid min-h-11 min-w-11 place-items-center border-2 border-paper bg-ink text-paper shadow-[4px_4px_0_var(--shadow-paper)] transition hover:-translate-y-0.5 hover:bg-acid hover:text-[var(--on-acid)]"
+                  aria-label="Close navigation menu"
+                  tabIndex={isOpen ? 0 : -1}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span className="relative block h-4 w-6" aria-hidden="true">
+                    <span className="absolute left-0 top-2 h-0.5 w-6 rotate-45 bg-current" />
+                    <span className="absolute left-0 top-2 h-0.5 w-6 -rotate-45 bg-current" />
+                  </span>
+                </button>
+              </div>
             </div>
 
             <p className="mt-10 text-sm font-black uppercase tracking-[0.2em] text-acid">
@@ -151,7 +161,9 @@ export function SiteHeader() {
             <div className="mt-8 grid gap-3">
               {navItems.map((item, index) => {
                 const isActive =
-                  item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
 
                 return (
                   <Link
@@ -163,7 +175,7 @@ export function SiteHeader() {
                     className={`group flex min-h-16 items-center justify-between border-2 px-4 py-3 font-display text-4xl font-black leading-none transition hover:-translate-y-0.5 ${
                       isActive
                         ? "border-paper bg-paper text-ink"
-                        : "border-paper/30 bg-ink text-paper hover:border-acid hover:bg-acid hover:text-ink"
+                        : "border-paper/30 bg-ink text-paper hover:border-acid hover:bg-acid hover:text-[var(--on-acid)]"
                     }`}
                   >
                     <span>{item.label}</span>
@@ -178,7 +190,7 @@ export function SiteHeader() {
 
           <div className="border-t-2 border-paper/20 pt-5">
             <p className="font-black">Mahir Uslu</p>
-            <p className="mt-1 text-paper/70">Senior Frontend Developer</p>
+            <p className="mt-1 text-paper/70">Senior Software Developer</p>
           </div>
         </div>
       </div>

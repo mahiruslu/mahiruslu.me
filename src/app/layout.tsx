@@ -3,6 +3,7 @@ import { Fraunces, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { profile } from "@/data/profile";
 
 const display = Fraunces({
@@ -22,13 +23,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mahiruslu.me"),
   applicationName: "Mahir Uslu Portfolio",
   title: {
-    default: "Mahir Uslu | Senior Frontend Developer",
+    default: "Mahir Uslu | Senior Software Developer",
     template: "%s | Mahir Uslu",
   },
   description:
-    "Portfolio of Mahir Uslu, a Senior Frontend Developer building React, React Native, TypeScript, Next.js, and mobile product experiences.",
+    "Portfolio of Mahir Uslu, a Senior Software Developer building React, React Native, TypeScript, Next.js, and mobile product experiences.",
   keywords: [
     "Mahir Uslu",
+    "Senior Software Developer",
     "Senior Frontend Developer",
     "React Developer",
     "React Native Developer",
@@ -98,7 +100,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0b0f10",
-  colorScheme: "light",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({
@@ -138,19 +140,35 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>
-        <a className="skip-link" href="#main-content">
-          Skip to content
-        </a>
-        <div className="grain" aria-hidden="true" />
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable}`}
+      data-theme="light"
+      suppressHydrationWarning
+    >
+      <head>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{var t=localStorage.getItem("mahir-theme");var m=t==="dark"||t==="light"?t:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=m;document.documentElement.style.colorScheme=m;}catch(e){document.documentElement.dataset.theme="light";document.documentElement.style.colorScheme="light";}',
+          }}
         />
+      </head>
+      <body>
+        <ThemeProvider>
+          <a className="skip-link" href="#main-content">
+            Skip to content
+          </a>
+          <div className="grain" aria-hidden="true" />
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+          <SiteFooter />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
