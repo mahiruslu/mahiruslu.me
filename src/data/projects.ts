@@ -17,16 +17,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "kyc-sdk-android",
-    name: "KYC SDK",
+    slug: "nimbo",
+    name: "Nimbo World",
     type: "Mobile App",
     year: "2026",
     description:
-      "Internal native Android KYC SDK work built with Kotlin, focused on identity verification flows, secure document capture, lifecycle-safe integration, and reliable host-app embedding.",
-    tags: ["kyc", "android", "kotlin", "internal"],
-    technologies: ["Kotlin", "Android SDK", "Native Android", "KYC"],
-    links: [],
-    source: "professional",
+      "A Turkish/English learning app for 3-6 year olds: activity packs of mini-games wrapped in an overworld, a gated parent area, and a one-time unlock. Fully on-device with no account, analytics, or ads, plus a Next.js content-authoring studio.",
+    tags: ["kids", "education", "expo", "private repo"],
+    technologies: ["React Native", "Expo", "TypeScript", "RevenueCat"],
+    links: [
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/nimbo-world-kids-learning/id6794716737",
+      },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.nimbo.kids",
+      },
+      { label: "Website", href: "https://nimboapp.vercel.app" },
+    ],
+    source: "private",
   },
   {
     slug: "swallet-samsung",
@@ -71,6 +81,18 @@ export const projects: Project[] = [
     source: "professional",
   },
   {
+    slug: "kyc-sdk-android",
+    name: "KYC SDK",
+    type: "Mobile App",
+    year: "2026",
+    description:
+      "Internal native Android KYC SDK work built with Kotlin, focused on identity verification flows, secure document capture, lifecycle-safe integration, and reliable host-app embedding.",
+    tags: ["kyc", "android", "kotlin", "internal"],
+    technologies: ["Kotlin", "Android SDK", "Native Android", "KYC"],
+    links: [],
+    source: "professional",
+  },
+  {
     slug: "samsung-firsatlari",
     name: "Samsung Firsatlari",
     type: "Mobile App",
@@ -102,6 +124,18 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Frontend Architecture"],
     links: [],
     source: "professional",
+  },
+  {
+    slug: "tes-san",
+    name: "TES-SAN",
+    type: "Website",
+    year: "2026",
+    description:
+      "Corporate website for a foundry equipment manufacturer: a Bun-managed Next.js App Router site with TypeScript, Tailwind CSS, native locale routing in Turkish, English, and Russian, and light/dark theming.",
+    tags: ["website", "i18n", "private repo", "vercel"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    links: [{ label: "Visit", href: "https://www.tes-san.com.tr" }],
+    source: "private",
   },
   {
     slug: "enn-mimarlik",
