@@ -6,7 +6,7 @@ export type ProjectLink = {
 export type Project = {
   slug: string;
   name: string;
-  type: "Mobile App" | "Web app" | "Website" | "Web";
+  type: "Mobile App" | "Desktop App" | "Web app" | "Website" | "Web";
   year: string;
   description: string;
   tags: string[];
@@ -37,6 +37,43 @@ export const projects: Project[] = [
       { label: "Website", href: "https://nimboapp.vercel.app" },
     ],
     source: "private",
+  },
+  {
+    slug: "bulgu",
+    name: "Bulgu",
+    type: "Mobile App",
+    year: "2026",
+    description:
+      "An IBS app that measures food triggers through protocol-driven personal experiments instead of passive journaling. Encrypted on-device SQLite, an offline catalog of 14,000+ foods, Apple Health / Health Connect sync, clinician PDF reports, and a Plus subscription.",
+    tags: ["health", "privacy", "expo", "private repo"],
+    technologies: ["React Native", "Expo", "TypeScript", "SQLCipher", "RevenueCat"],
+    links: [
+      { label: "App Store", href: "https://apps.apple.com/app/id6825457645" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.bulgu.app",
+      },
+      { label: "Website", href: "https://bulguapp.vercel.app" },
+    ],
+    source: "private",
+  },
+  {
+    slug: "kadraj",
+    name: "Kadraj",
+    type: "Desktop App",
+    year: "2026",
+    description:
+      "An open-source macOS screenshot tool: select, annotate in place, copy. Scrolling capture, offline OCR and QR, screen recording to MP4/GIF with mixed system and mic audio, pin to screen, and a color picker. Signed, notarized, and installable via Homebrew.",
+    tags: ["macos", "open source", "productivity"],
+    technologies: ["Swift", "SwiftUI", "AppKit", "ScreenCaptureKit"],
+    links: [
+      { label: "GitHub", href: "https://github.com/mahiruslu/kadraj" },
+      {
+        label: "Download",
+        href: "https://github.com/mahiruslu/kadraj/releases/latest",
+      },
+    ],
+    source: "github",
   },
   {
     slug: "swallet-samsung",
@@ -135,6 +172,30 @@ export const projects: Project[] = [
     tags: ["website", "i18n", "private repo", "vercel"],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     links: [{ label: "Visit", href: "https://www.tes-san.com.tr" }],
+    source: "private",
+  },
+  {
+    slug: "yuva-psikolojisi",
+    name: "Yuva Psikolojisi",
+    type: "Website",
+    year: "2026",
+    description:
+      "Website for a psychology practice: a Next.js App Router site with a content-driven blog, structured data and OG images for SEO, RSS, light/dark theming, and a toggleable appointment system.",
+    tags: ["website", "seo", "private repo", "vercel"],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Drizzle"],
+    links: [{ label: "Visit", href: "https://www.yuvapsikolojisi.com" }],
+    source: "private",
+  },
+  {
+    slug: "mustafa-besler-cnc",
+    name: "Mustafa Besler CNC",
+    type: "Website",
+    year: "2026",
+    description:
+      "Website for a laser cutting and press brake bending workshop in OSTIM, Ankara: Next.js App Router with Cache Components, Tailwind CSS, and scroll-driven GSAP animations.",
+    tags: ["website", "manufacturing", "private repo"],
+    technologies: ["Next.js", "Tailwind CSS", "GSAP", "Lenis"],
+    links: [{ label: "Visit", href: "https://mustafabeslercnc.com" }],
     source: "private",
   },
   {
