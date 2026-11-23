@@ -2,40 +2,34 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-A personal portfolio site built with Create React App (`react-scripts` 5.0.1), React 18, and `react-router-dom` v6. See `AGENTS.md` for naming/style conventions; this file covers architecture.
+A personal portfolio built with Next.js 16 (App Router, Turbopack), React 19, TypeScript, Tailwind CSS 4, and framer-motion. Package manager is bun. See `AGENTS.md` for naming/style conventions; this file covers architecture.
 
 ## Commands
 
-- `npm start` — dev server at http://localhost:3000
-- `npm run build` — production build to `build/`
-- `npm test` — CRA/Jest watch mode (`npm test -- <pattern>` for a single file; no tests are checked in yet)
-- `npm run icon` — regenerate React icon components in `src/components/icons/` from SVGs in `src/assets/icons/` via SVGR (maps `#fff` → `currentColor`). Do not hand-edit generated icons.
+- `bun run dev` — dev server at http://localhost:3000
+- `bun run build` — production build (also type-checks)
+- `bun run lint` — ESLint (`eslint-config-next`)
+- `bun test` — runs `src/lib/*.test.ts` and `src/data/*.test.ts` with `bun:test`
 
 Node `22.x` is required (`.nvmrc`, `package.json` engines).
 
 ## Architecture
 
-**Routing.** `src/App.js` declares every route inside a single `<Layout>` (`Navbar` + `<main>`), wrapped in `<Router>` and `<Suspense>`. Routes: `/` Home, `/timeline` Timeline, `/projects` Projects, `/blog` Articles, `/contact` Contact, `*` Error. There is no nested routing or route-based code splitting despite the `Suspense` boundary.
+**Routes** (`src/app/`): `/` home, `/projects` index, `/projects/[slug]` case studies (statically generated only for projects with a `caseStudy`; `dynamicParams = false`), `/timeline` (labelled "Experience"), `/blog` (labelled "Writing"), `/contact`. `layout.tsx` holds fonts, metadata, JSON-LD, `SiteHeader`/`SiteFooter`, and the theme init script. `typedRoutes` is on, so `<Link href>` must be a real route.
 
-**Each page owns its own data fetch — there is no shared data layer or global state.** Three independent external sources, each called client-side from the page that renders it:
-- **Projects** reads Firebase Realtime Database (`projects` ref via `onValue` in `src/utils/firebase.js`) and feeds the result into `Carousel`. The Firebase config is hardcoded and client-side public; access is governed by `database.rules.json`, not secrets.
-- **Articles** fetches the Medium RSS feed through `api.rss2json.com` with `axios`.
-- **Contact** sends the form via `emailjs-com` with hardcoded service/template/user IDs; form validation uses `react-hook-form`.
+**Content is local data**, not a CMS: `src/data/profile.ts` (name, role, socials), `src/data/projects.ts` (project list plus a `caseStudies` map merged in by slug; exports `projects`, `caseStudyProjects`, `featuredProjects`), `src/data/timeline.ts`. The only external fetch is the Medium RSS feed in `src/lib/blog.ts` (server-side, revalidated hourly). The contact form validates in `src/lib/contact.ts` and opens a prepared WhatsApp URL; nothing is sent to a server.
 
-When changing any of these, the data shape comes from the external service, not from a local model.
+**Theme.** `ThemeProvider` stores `light`/`dark` in `localStorage` (`mahir-theme`), sets `data-theme` on `<html>`, and animates the switch with a circular `document.startViewTransition` reveal scoped by `data-theme-transition`.
 
-**Page shell.** `src/components/Page/Page.jsx` is the standard content wrapper (framer-motion fade-in, `title`/`desc` header, `direction="row|column"` body). Most pages also wrap themselves in their own `motion.div` entrance animation — framer-motion is the animation primitive throughout.
+## Design system
 
-**Toasts.** `src/utils/hooks/useToastify.js` is the single entry point for notifications: import `toastifySuccess` / `toastifyError` plus the `ToastContainer` (render the container once on the page that emits toasts, as Contact does).
+Editorial, typography-led. Tokens live in `src/app/globals.css` (`@theme` + `[data-theme="dark"]`): `ink`, `ink-soft`, `muted`, `paper`, `paper-raised`, one `accent`, and `line`/`line-strong` hairlines. Fonts: Instrument Serif (`font-display`, headings, weight 400 only), Geist (`font-body`), Geist Mono (`font-mono`, small uppercase labels). Use 1px `border-line` rules instead of boxes or shadows; keep the accent rare (hover, active indicator, focus, selection).
 
-## Styling
+## Motion
 
-CSS Modules (`*.module.scss`) colocated with each component/page, imported as `Styles` and applied as `Styles.className`; `classnames/bind` is used for conditional classes. Shared SCSS partials live in `src/assets/styles/` (`_variables`, `_mixins`, `_global`, `_animations`) and are pulled in globally through `src/assets/styles/main.scss`, which is imported once in `src/index.js`. Global tokens go in the partials; component-specific styles stay in the module.
-
-## Deployment
-
-The same `build/` output ships to two targets: **Vercel** (`vercel.json`, framework `create-react-app`) and **Firebase Hosting** (`firebase.json`, site `mahiruslu`). Keep both configs in sync when changing the build command or output directory.
-
-## Notes
-
-- `src/pages/Projects/` contains stray duplicates `Projects copy.jsx` and `Projects.module copy.scss` that are not imported — ignore them; don't treat them as the source of truth.
+- Curves are tokens: `--ease-out`, `--ease-in-out`, `--ease-drawer` in CSS (Tailwind `ease-out` uses the custom curve), mirrored in `src/lib/motion.ts` (`easeOut`, `easeInOut`, `easeDrawer`, `spring`, `revealVariants`, `staggerContainer`).
+- Scroll reveals: `Reveal`, `RevealGroup`/`RevealItem` from `src/components/Reveal.tsx` (once, opacity + 16px lift; opacity-only under reduced motion).
+- Route transitions: `experimental.viewTransition` + React `<ViewTransition>` in `src/components/PageTransition.tsx`, rendered from `src/app/template.tsx` and `src/app/projects/template.tsx`. CSS classes `page-enter`/`page-exit`/`morph` live in `globals.css`.
+- Project names morph between the index and case study via `ProjectName` (`name="project-<slug>"`). **Never wrap a morph target in `Reveal`** — it starts at opacity 0 and the title would vanish after the morph lands.
+- Tailwind 4 `translate-*`/`rotate-*`/`scale-*` set the individual `translate`/`rotate`/`scale` properties, so transition those (e.g. `transition-[translate,color]`), not `transform`.
+- Every animation must respect `prefers-reduced-motion` (use `useReducedMotion()` in framer components).

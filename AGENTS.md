@@ -2,29 +2,25 @@
 
 ## Project Structure & Module Organization
 
-This is a Create React App portfolio site. Application entry points live in `src/index.js` and `src/App.js`. Route-level screens are under `src/pages/<PageName>/`, usually paired with `<PageName>.module.scss`. Reusable UI lives in `src/components/<ComponentName>/` with the same component-plus-module pattern. Shared styling is in `src/assets/styles/`, including Sass variables, mixins, globals, and animations. Firebase setup is isolated in `src/utils/firebase.js`, and custom hooks belong under `src/utils/hooks/`. Static public files are in `public/`; deployment-related config is in `firebase.json`, `vercel.json`, and `config.toml`.
+Next.js App Router portfolio. Routes live in `src/app/<route>/page.tsx`; shared UI in `src/components/` (one PascalCase `.tsx` file per component, named exports); content in `src/data/`; helpers and their tests in `src/lib/`; images in `src/assets/images/`; static files in `public/`. Deployment config is `vercel.json` and `firebase.json`; keep both in sync if the build output changes.
 
 ## Build, Test, and Development Commands
 
-- `npm start`: runs the local development server at `http://localhost:3000`.
-- `npm run build`: creates an optimized production build in `build/`.
-- `npm test`: starts the CRA/Jest test runner in watch mode.
-- `npm run icon`: converts SVG files from `src/assets/icons` into React icon components in `src/components/icons`.
+- `bun run dev`: local dev server at `http://localhost:3000`.
+- `bun run build`: production build; run it for route, metadata, or styling changes.
+- `bun run lint`: ESLint.
+- `bun test`: data and lib unit tests (`bun:test`).
 
-The project declares Node `22.x` in `package.json`; use that version when reproducing builds or deployment issues.
+Use Node `22.x` when reproducing builds or deployment issues.
 
 ## Coding Style & Naming Conventions
 
-Use React function components and default exports, matching the existing component style. Name component files and folders in PascalCase, for example `src/components/Navbar/Navbar.jsx`. Name Sass modules after their component or page, for example `Navbar.module.scss`. Existing Sass uses nested selectors and BEM-like suffixes such as `.home_content_title`; keep related styles colocated with their component. JavaScript currently uses two-space indentation and double quotes. SCSS files commonly use four-space indentation; preserve surrounding style when editing.
+TypeScript, function components, two-space indentation, double quotes. Style with Tailwind utility classes and the tokens in `src/app/globals.css`; don't add hard-coded colors or new shadows. Client components start with `"use client"` and stay as small as possible: keep pages server components and push interactivity into leaf components. Copy is in English; the site-wide title is "Senior Software Developer" (`profile.role`).
 
 ## Testing Guidelines
 
-Testing dependencies are provided by Create React App and React Testing Library, but there are currently no checked-in test files. Add tests near the code they cover using CRA conventions such as `Component.test.jsx` or `App.test.js`. Prefer user-focused assertions from React Testing Library over implementation details. Run `npm test` for watch mode before submitting behavioral changes, and run `npm run build` for route, styling, or deployment-sensitive changes.
+Tests sit next to the code they cover as `*.test.ts` and run with `bun test`. Add a data test when you change the shape of `src/data/*`. For visible UI changes, check desktop and ~375px widths, both themes, and reduced motion.
 
 ## Commit & Pull Request Guidelines
 
-Recent commits use short imperative summaries, sometimes with Turkish descriptions, such as `fix stylings` or `Refactor home screen`. Keep commits concise and scoped to one change. For pull requests, include a brief summary, affected pages/components, test or build results, and screenshots or screen recordings for visible UI changes. Mention any Firebase, Vercel, or Node-version implications when deployment config changes.
-
-## Agent-Specific Instructions
-
-Do not run `npm run eject` unless explicitly requested. Avoid unrelated cleanup of copied project files or deployment config while making focused changes.
+Conventional-style summaries with a scope, e.g. `feat: add Kadraj case study (projects)`. Keep commits focused. PRs should list affected routes and include screenshots for visual changes.
