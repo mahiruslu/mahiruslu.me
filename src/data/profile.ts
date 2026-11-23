@@ -1,5 +1,7 @@
 export const profile = {
   name: "Mahir Uslu",
+  /** Canonical origin; the apex mahiruslu.com redirects here. */
+  siteUrl: "https://www.mahiruslu.com",
   role: "Senior Software Developer",
   currentCompany: "Innovance Consultancy",
   location: "Konya, Türkiye",

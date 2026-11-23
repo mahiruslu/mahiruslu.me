@@ -27,7 +27,7 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mahiruslu.me"),
+  metadataBase: new URL(profile.siteUrl),
   applicationName: "Mahir Uslu Portfolio",
   title: {
     default: "Mahir Uslu | Senior Software Developer",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Mahir Uslu | Senior Software Developer",
     description:
       "Senior Software Developer building React Native, web, and macOS products. Projects, experience, writing, and contact.",
-    url: "https://mahiruslu.me",
+    url: profile.siteUrl,
     siteName: "Mahir Uslu",
     locale: "en_US",
     type: "website",
@@ -122,7 +122,7 @@ export default function RootLayout({
     "@type": "Person",
     name: profile.name,
     jobTitle: profile.role,
-    url: "https://mahiruslu.me",
+    url: profile.siteUrl,
     sameAs: [profile.linkedin.url, profile.github.url],
     worksFor: {
       "@type": "Organization",

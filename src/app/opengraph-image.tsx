@@ -67,7 +67,7 @@ export default function OpenGraphImage() {
           }}
         >
           <span>React Native, web, and macOS products.</span>
-          <span style={{ fontFamily: "monospace", fontSize: 22, color: muted }}>mahiruslu.me</span>
+          <span style={{ fontFamily: "monospace", fontSize: 22, color: muted }}>mahiruslu.com</span>
         </div>
       </div>
     ),

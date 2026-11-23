@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { profile } from "@/data/profile";
 import { caseStudyProjects } from "@/data/projects";
 
 const routes = ["", "/projects", "/timeline", "/blog", "/contact"];
-const baseUrl = "https://mahiruslu.me";
+const baseUrl = profile.siteUrl;
 const lastModified = new Date("2026-11-23");
 
 export default function sitemap(): MetadataRoute.Sitemap {
