@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
 import {
   buildWhatsAppUrl,
@@ -19,7 +20,7 @@ const fields: Array<{
   {
     name: "name",
     label: "Name",
-    placeholder: "Mahir Uslu…",
+    placeholder: "Your name",
     autoComplete: "name",
     required: true,
   },
@@ -27,7 +28,7 @@ const fields: Array<{
     name: "email",
     label: "Email",
     type: "email",
-    placeholder: "hello@example.com…",
+    placeholder: "you@example.com",
     autoComplete: "email",
     inputMode: "email",
     required: true,
@@ -36,18 +37,43 @@ const fields: Array<{
     name: "phone",
     label: "Phone",
     type: "tel",
-    placeholder: "+90 555 123 4567…",
+    placeholder: "+90 555 123 4567",
     autoComplete: "tel",
     inputMode: "tel",
   },
   {
     name: "subject",
     label: "Subject",
-    placeholder: "React Native product work…",
+    placeholder: "What is it about?",
     autoComplete: "off",
     required: true,
   },
 ];
+
+const labelClass = "block font-mono text-xs uppercase tracking-[0.12em] text-muted";
+const inputClass =
+  "mt-1 min-h-12 w-full border-0 border-b border-line-strong bg-transparent px-0 py-2 text-lg text-ink outline-none transition-colors duration-150 placeholder:text-muted/70 focus:border-accent aria-[invalid=true]:border-accent";
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  return (
+    <div aria-live="polite">
+      <AnimatePresence initial={false}>
+        {message ? (
+          <motion.p
+            key="error"
+            id={id}
+            className="mt-2 text-sm text-accent"
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.15 } }}
+            exit={{ opacity: 0, transition: { duration: 0.1 } }}
+          >
+            {message}
+          </motion.p>
+        ) : null}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 const initialValues: ContactFormValues = {
   name: "",
@@ -91,14 +117,13 @@ export function ContactForm() {
 
   return (
     <form
-      className="border-2 border-ink bg-paper p-4 shadow-[10px_10px_0_var(--shadow-ink)] sm:p-6"
       onSubmit={handleSubmit}
       noValidate
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-x-8 gap-y-7 md:grid-cols-2">
         {fields.map((field) => (
-          <div key={field.name} className="space-y-2">
-            <label className="block font-black" htmlFor={field.name}>
+          <div key={field.name}>
+            <label className={labelClass} htmlFor={field.name}>
               {field.label}
               {field.required ? <span aria-hidden="true"> *</span> : null}
             </label>
@@ -117,22 +142,14 @@ export function ContactForm() {
               spellCheck={field.name === "email" ? false : undefined}
               aria-invalid={errors[field.name] ? "true" : "false"}
               aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-              className="min-h-12 w-full border-2 border-ink bg-[var(--field-bg)] px-3 py-2 font-medium text-ink placeholder:text-steel"
+              className={inputClass}
             />
-            {errors[field.name] ? (
-              <p
-                id={`${field.name}-error`}
-                className="font-bold text-signal"
-                aria-live="polite"
-              >
-                {errors[field.name]}
-              </p>
-            ) : null}
+            <FieldError id={`${field.name}-error`} message={errors[field.name]} />
           </div>
         ))}
 
-        <div className="space-y-2 md:col-span-2">
-          <label className="block font-black" htmlFor="message">
+        <div className="md:col-span-2">
+          <label className={labelClass} htmlFor="message">
             Message <span aria-hidden="true">*</span>
           </label>
           <textarea
@@ -143,25 +160,27 @@ export function ContactForm() {
             name="message"
             value={values.message}
             onChange={(event) => updateValue("message", event.target.value)}
-            placeholder="A few details about the product, timeline, and platform…"
+            placeholder="A few details: the product, the timeline, the platform."
             autoComplete="off"
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="min-h-40 w-full resize-y border-2 border-ink bg-[var(--field-bg)] px-3 py-2 font-medium text-ink placeholder:text-steel"
+            className={`${inputClass} min-h-36 resize-y`}
           />
-          {errors.message ? (
-            <p id="message-error" className="font-bold text-signal" aria-live="polite">
-              {errors.message}
-            </p>
-          ) : null}
+          <FieldError id="message-error" message={errors.message} />
         </div>
       </div>
 
       <button
-        className="mt-6 min-h-12 border-2 border-ink bg-ink px-5 py-3 font-black text-paper shadow-[5px_5px_0_var(--color-signal)] transition hover:-translate-y-0.5 hover:bg-signal hover:text-[var(--on-signal)]"
+        className="press group mt-10 inline-flex min-h-12 items-center gap-3 rounded-full bg-ink px-6 font-medium text-paper transition-[background-color,transform] duration-150 hover:bg-accent"
         type="submit"
       >
-        Open WhatsApp
+        Send via WhatsApp
+        <span
+          aria-hidden="true"
+          className="transition-[translate] duration-200 ease-out group-hover:translate-x-0.5"
+        >
+          →
+        </span>
       </button>
     </form>
   );

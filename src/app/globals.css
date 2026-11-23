@@ -1,31 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b0f10;
-  --color-ink-soft: #1d272a;
-  --color-paper: #f1eadc;
-  --color-paper-muted: #dfd4c1;
-  --color-steel: #6f8791;
-  --color-acid: #89c91d;
-  --color-signal: #ff4f3f;
+  --color-ink: #151413;
+  --color-ink-soft: #45413b;
+  --color-muted: #8b857b;
+  --color-paper: #f4efe6;
+  --color-paper-raised: #ebe5da;
+  --color-accent: #e0482e;
+  --color-line: color-mix(in oklab, var(--color-ink) 12%, transparent);
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 28%, transparent);
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 :root {
   color-scheme: light;
-  --header-height: 76px;
-  --grid-line: color-mix(in oklab, var(--color-ink) 10%, transparent);
-  --shadow-ink: #0b0f10;
-  --shadow-paper: #f1eadc;
-  --field-bg: #faf2e3;
-  --footer-bg: #0b0f10;
-  --footer-fg: #f1eadc;
-  --on-acid: #0b0f10;
-  --on-signal: #f1eadc;
-  --grain-dot: rgb(11 15 16 / 0.28);
-  --ambient-acid: color-mix(in oklab, var(--color-acid) 18%, transparent);
-  --ambient-signal: color-mix(in oklab, var(--color-signal) 13%, transparent);
+  --header-height: 72px;
+  --field-bg: color-mix(in oklab, var(--color-paper) 70%, white);
   --theme-toggle-x: 50vw;
   --theme-toggle-y: 50vh;
   --theme-toggle-radius: 100vmax;
@@ -33,24 +28,13 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-ink: #efe7d8;
-  --color-ink-soft: #d5cab8;
-  --color-paper: #0f1415;
-  --color-paper-muted: #1c2527;
-  --color-steel: #97adb4;
-  --color-acid: #96d329;
-  --color-signal: #ff6657;
-  --grid-line: color-mix(in oklab, var(--color-ink) 13%, transparent);
-  --shadow-ink: #efe7d8;
-  --shadow-paper: #efe7d8;
-  --field-bg: #151c1e;
-  --footer-bg: #050707;
-  --footer-fg: #efe7d8;
-  --on-acid: #0b0f10;
-  --on-signal: #0b0f10;
-  --grain-dot: rgb(245 240 230 / 0.18);
-  --ambient-acid: color-mix(in oklab, var(--color-acid) 12%, transparent);
-  --ambient-signal: color-mix(in oklab, var(--color-signal) 11%, transparent);
+  --color-ink: #ece6dc;
+  --color-ink-soft: #bdb5a8;
+  --color-muted: #7d776d;
+  --color-paper: #121110;
+  --color-paper-raised: #1b1a18;
+  --color-accent: #ff6a4d;
+  --field-bg: #191816;
 }
 
 * {
@@ -65,29 +49,12 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background:
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(180deg, var(--grid-line) 1px, transparent 1px),
-    var(--color-paper);
-  background-size: 44px 44px;
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  transition:
-    background-color 180ms ease,
-    color 180ms ease;
-  -webkit-tap-highlight-color: rgb(255 79 63 / 0.22);
-}
-
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background:
-    linear-gradient(110deg, transparent 0 58%, var(--ambient-acid) 58% 63%, transparent 63%),
-    linear-gradient(175deg, transparent 0 70%, var(--ambient-signal) 70% 73%, transparent 73%);
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
@@ -103,16 +70,16 @@ body::before {
     font: inherit;
     touch-action: manipulation;
   }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
 }
 
 ::selection {
-  background: var(--color-acid);
-  color: var(--color-ink);
-}
-
-:focus-visible {
-  outline: 3px solid var(--color-signal);
-  outline-offset: 4px;
+  background: var(--color-accent);
+  color: var(--color-paper);
 }
 
 .skip-link {
@@ -121,35 +88,49 @@ body::before {
   left: 12px;
   z-index: 100;
   transform: translateY(-150%);
-  border: 2px solid var(--color-ink);
-  background: var(--color-acid);
+  background: var(--color-ink);
+  color: var(--color-paper);
   padding: 10px 14px;
-  font-weight: 800;
-  transition: transform 160ms ease;
+  font-weight: 500;
+  transition: transform 160ms var(--ease-out);
 }
 
 .skip-link:focus {
   transform: translateY(0);
 }
 
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.24;
-  background-image: radial-gradient(circle at 1px 1px, var(--grain-dot) 1px, transparent 0);
-  background-size: 13px 13px;
-  mix-blend-mode: multiply;
-}
-
-[data-theme="dark"] .grain {
-  mix-blend-mode: screen;
-}
-
 .text-balance {
   text-wrap: balance;
 }
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Underline that draws in from the left on hover. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 240ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+.press {
+  transition: transform 160ms var(--ease-out);
+}
+
+.press:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Theme switch (circle reveal from the toggle) ---------- */
 
 html[data-theme-transition="active"]::view-transition-old(root),
 html[data-theme-transition="active"]::view-transition-new(root) {
@@ -176,18 +157,78 @@ html[data-theme-transition="active"]::view-transition-new(root) {
   }
 }
 
+/* ---------- Route transitions (React <ViewTransition>) ---------- */
+
+/* The page itself does the moving; keep the root snapshot still. */
+html:not([data-theme-transition="active"])::view-transition-old(root),
+html:not([data-theme-transition="active"])::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-old(.page-exit) {
+  animation: 150ms var(--ease-out) both vt-fade-out;
+}
+
+::view-transition-new(.page-enter) {
+  animation: 260ms var(--ease-out) 90ms both vt-fade-up;
+}
+
+::view-transition-group(.morph) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease-in-out);
+}
+
+::view-transition-image-pair(.morph) {
+  animation-name: vt-via-blur;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes vt-via-blur {
+  35% {
+    filter: blur(3px);
+  }
+}
+
+/* ---------- Reduced motion: keep fades, drop movement ---------- */
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  .press:active {
+    transform: none;
+  }
+
+  ::view-transition-new(.page-enter) {
+    animation-name: vt-fade-in;
+  }
+
+  ::view-transition-group(.morph),
+  ::view-transition-image-pair(.morph) {
+    animation: none;
   }
 
   html[data-theme-transition="active"]::view-transition-old(root),
   html[data-theme-transition="active"]::view-transition-new(root) {
     animation: none !important;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
   }
 }

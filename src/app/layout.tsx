@@ -1,21 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, IBM_Plex_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { profile } from "@/data/profile";
 
-const display = Fraunces({
-  subsets: ["latin"],
+const display = Instrument_Serif({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const body = Geist({
+  subsets: ["latin", "latin-ext"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const mono = Geist_Mono({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -31,12 +38,11 @@ export const metadata: Metadata = {
   keywords: [
     "Mahir Uslu",
     "Senior Software Developer",
-    "Senior Frontend Developer",
     "React Developer",
     "React Native Developer",
     "TypeScript Developer",
     "Next.js Developer",
-    "Frontend Engineer Türkiye",
+    "Software Developer Türkiye",
     "Innovance Consultancy",
   ],
   authors: [{ name: profile.name, url: profile.linkedin.url }],
@@ -62,9 +68,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   category: "portfolio",
   openGraph: {
-    title: "Mahir Uslu | Senior Frontend Developer",
+    title: "Mahir Uslu | Senior Software Developer",
     description:
-      "Senior Frontend Developer portfolio: React, React Native, TypeScript, projects, career timeline, articles, and contact.",
+      "Senior Software Developer building React Native, web, and macOS products. Projects, experience, writing, and contact.",
     url: "https://mahiruslu.me",
     siteName: "Mahir Uslu",
     locale: "en_US",
@@ -74,15 +80,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Mahir Uslu Senior Frontend Developer portfolio",
+        alt: "Mahir Uslu, Senior Software Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mahir Uslu | Senior Frontend Developer",
+    title: "Mahir Uslu | Senior Software Developer",
     description:
-      "React, React Native, TypeScript, and Next.js portfolio of Mahir Uslu.",
+      "React Native, web, and macOS products by Mahir Uslu.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -99,7 +105,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b0f10",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4efe6" },
+    { media: "(prefers-color-scheme: dark)", color: "#121110" },
+  ],
   colorScheme: "light dark",
 };
 
@@ -142,7 +151,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
       data-theme="light"
       suppressHydrationWarning
     >
@@ -160,7 +169,6 @@ export default function RootLayout({
           <a className="skip-link" href="#main-content">
             Skip to content
           </a>
-          <div className="grain" aria-hidden="true" />
           <SiteHeader />
           <main id="main-content">{children}</main>
           <SiteFooter />

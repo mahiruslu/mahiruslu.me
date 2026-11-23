@@ -51,7 +51,7 @@ export const timeline: TimelineItem[] = [
     order: 1,
     type: "life",
     title: "Life life = new Life();",
-    name: "Turkey",
+    name: "Türkiye",
     dateStart: "May 1995",
     dateEnd: ":)",
     description: "",

@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { ExternalLink } from "@/components/ExternalLink";
+import { ArrowUpRight, ExternalLink } from "@/components/ExternalLink";
 import { PageIntro } from "@/components/PageIntro";
+import { RevealGroup, RevealItem } from "@/components/Reveal";
+import { profile } from "@/data/profile";
 import { getMediumPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Writing",
   description:
-    "Medium articles by Mahir Uslu about React Native, frontend engineering, and software product delivery.",
+    "Articles by Mahir Uslu on React Native, frontend engineering, and shipping software products.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Blog | Mahir Uslu",
+    title: "Writing | Mahir Uslu",
     description:
-      "Articles by Mahir Uslu about React Native, frontend engineering, and software product delivery.",
+      "Articles by Mahir Uslu on React Native, frontend engineering, and shipping software products.",
     url: "/blog",
   },
 };
@@ -28,56 +30,58 @@ export default async function BlogPage() {
   const { posts, error } = await getMediumPosts();
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-5 py-12 sm:px-8 lg:px-12">
+    <div className="mx-auto w-full max-w-[1320px] px-5 pt-14 sm:px-8 sm:pt-20 lg:px-12">
       <PageIntro
         eyebrow="Writing"
-        title="Notes from building software, teams, and product interfaces."
-        description="Articles are fetched from Medium on the server and cached so the page remains fast."
+        title="Articles I’ve published on Medium."
       />
 
-      {error ? (
-        <div className="mt-10 border-2 border-ink bg-signal px-5 py-4 font-bold text-[var(--on-signal)] shadow-[8px_8px_0_var(--shadow-ink)]">
-          Medium is not responding right now. Direct profile links are still
-          available below.
-        </div>
-      ) : null}
-
       {posts.length === 0 ? (
-        <div className="mt-10 border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--shadow-ink)]">
-          <p className="text-lg font-bold">No articles are available.</p>
-          <p className="mt-2 text-ink-soft">
-            Medium may be temporarily unavailable.
+        <div className="mt-16 max-w-xl border-t border-line pt-8">
+          <p className="text-lg">
+            {error
+              ? "Medium isn’t responding right now, so the list can't load."
+              : "No articles to show yet."}
           </p>
-          <div className="mt-5">
-            <ExternalLink href="https://www.medium.com/@mahir.uslu/">
-              Open Medium profile
-            </ExternalLink>
-          </div>
+          <ExternalLink href={profile.medium.url} className="mt-2">
+            Read on Medium
+          </ExternalLink>
         </div>
       ) : (
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <RevealGroup as="ol" className="mt-16 border-t border-line" stagger={0.06}>
           {posts.map((post) => (
-            <article
-              key={post.link}
-              className="group border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--shadow-ink)] transition hover:-translate-y-1 hover:bg-acid hover:text-[var(--on-acid)]"
-            >
-              <p className="text-sm font-black uppercase tracking-[0.16em] text-steel group-hover:text-ink">
-                {dateFormatter.format(new Date(post.publishedAt))}
-              </p>
-              <h2 className="mt-4 font-display text-3xl font-black leading-tight">
-                <a href={post.link} target="_blank" rel="noreferrer">
-                  {post.title}
-                </a>
-              </h2>
-              <p className="mt-4 line-clamp-3 text-base leading-7 text-ink-soft">
-                {post.excerpt}
-              </p>
-              <div className="mt-6">
-                <ExternalLink href={post.link}>Read on Medium</ExternalLink>
-              </div>
-            </article>
+            <RevealItem as="li" key={post.link} className="border-b border-line">
+              <a
+                href={post.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative grid gap-3 py-8 md:grid-cols-12 md:items-baseline md:gap-6"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 -top-px h-px origin-left scale-x-0 bg-accent transition-[scale] duration-300 ease-out group-hover:scale-x-100"
+                />
+                <time
+                  dateTime={post.publishedAt}
+                  className="font-mono text-xs uppercase tracking-[0.08em] text-muted md:col-span-2"
+                >
+                  {dateFormatter.format(new Date(post.publishedAt))}
+                </time>
+                <span className="md:col-span-9">
+                  <span className="block font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.01em] transition-colors duration-200 group-hover:text-accent text-balance">
+                    {post.title}
+                  </span>
+                  <span className="mt-3 line-clamp-2 block max-w-2xl leading-relaxed text-ink-soft">
+                    {post.excerpt}
+                  </span>
+                </span>
+                <span className="hidden justify-self-end md:col-span-1 md:block">
+                  <ArrowUpRight className="h-5 w-5 text-muted transition-[translate,color] duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+                </span>
+              </a>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       )}
     </div>
   );

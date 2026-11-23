@@ -3,19 +3,30 @@ export type ProjectLink = {
   href: string;
 };
 
+export type ProjectType = "Mobile App" | "Desktop App" | "Web app" | "Website";
+
+export type CaseStudy = {
+  summary: string;
+  role: string;
+  highlights: string[];
+  stack: string[];
+  images?: { src: string; alt: string }[];
+};
+
 export type Project = {
   slug: string;
   name: string;
-  type: "Mobile App" | "Desktop App" | "Web app" | "Website" | "Web";
+  type: ProjectType;
   year: string;
   description: string;
   tags: string[];
   technologies: string[];
   links: ProjectLink[];
   source?: "github" | "portfolio" | "private" | "professional";
+  caseStudy?: CaseStudy;
 };
 
-export const projects: Project[] = [
+const projectList: Project[] = [
   {
     slug: "nimbo",
     name: "Nimbo World",
@@ -240,7 +251,7 @@ export const projects: Project[] = [
   {
     slug: "voting-hardhat",
     name: "Voting Hardhat",
-    type: "Web",
+    type: "Web app",
     year: "2025",
     description:
       "A TypeScript blockchain voting project using the Hardhat development workflow.",
@@ -254,7 +265,7 @@ export const projects: Project[] = [
   {
     slug: "boilerplate",
     name: "Boilerplate",
-    type: "Web",
+    type: "Web app",
     year: "2024",
     description:
       "A TypeScript starter repository for repeatable web application setup and fast project initialization.",
@@ -293,7 +304,7 @@ export const projects: Project[] = [
   {
     slug: "targreen",
     name: "targreen",
-    type: "Web",
+    type: "Web app",
     year: "2022",
     description:
       "A promotional web presence for an international marketing business, built as a fast React experience with animated product storytelling.",
@@ -362,3 +373,104 @@ export const projects: Project[] = [
     source: "portfolio",
   },
 ];
+
+/**
+ * Long-form write-ups for selected projects. Drawn only from the project
+ * descriptions and timeline above; add screenshots via `images`.
+ */
+const caseStudies: Record<string, CaseStudy> = {
+  nimbo: {
+    summary:
+      "A learning app that teaches Turkish and English to 3–6 year olds through short mini-games, built to run entirely on the device.",
+    role: "Independent product: design, engineering, release",
+    highlights: [
+      "Activity packs of mini-games wrapped in an explorable overworld.",
+      "A gated parent area and a one-time unlock instead of a subscription.",
+      "Fully on-device: no account, no analytics, no ads.",
+      "A separate Next.js studio for authoring content packs.",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "RevenueCat", "Next.js"],
+  },
+  bulgu: {
+    summary:
+      "An IBS app that finds food triggers through structured personal experiments rather than passive journaling.",
+    role: "Independent product: design, engineering, release",
+    highlights: [
+      "Protocol-driven experiments that measure how specific foods affect symptoms.",
+      "Encrypted on-device SQLite, so health data never leaves the phone.",
+      "An offline catalog of 14,000+ foods.",
+      "Apple Health and Health Connect sync.",
+      "Clinician-ready PDF reports and a Plus subscription.",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "SQLCipher", "RevenueCat"],
+  },
+  kadraj: {
+    summary:
+      "An open-source macOS screenshot tool built around one loop: select, annotate in place, copy.",
+    role: "Author and maintainer",
+    highlights: [
+      "Scrolling capture, with offline OCR and QR detection.",
+      "Screen recording to MP4 or GIF with mixed system and microphone audio.",
+      "Pin captures to the screen and pick colors from anywhere.",
+      "Signed, notarized, and installable via Homebrew.",
+    ],
+    stack: ["Swift", "SwiftUI", "AppKit", "ScreenCaptureKit"],
+  },
+  "swallet-samsung": {
+    summary:
+      "Samsung's wallet app, built at Innovance with React Native on top of native payment and SDK integrations.",
+    role: "Senior Frontend Developer, Innovance",
+    highlights: [
+      "Integrated payment systems and third-party SDKs.",
+      "Wrote Kotlin native modules and the React Native bridge layers around them.",
+      "Focused on reliability across the mobile app lifecycle.",
+    ],
+    stack: ["React Native", "TypeScript", "Kotlin", "Native Modules"],
+  },
+  "besiktas-jk-mobile": {
+    summary:
+      "Beşiktaş JK's official mobile app, where I worked on purchase flows and the user-facing features around them.",
+    role: "Senior Frontend Developer, Innovance",
+    highlights: [
+      "Built reliable In-App Purchase flows.",
+      "Debugged production issues and handled edge cases.",
+      "Shipped user-facing enhancements to the live app.",
+    ],
+    stack: ["React Native", "TypeScript", "In-App Purchase", "Jest"],
+  },
+  "akbank-atm": {
+    summary:
+      "Service interfaces for Akbank ATMs, developed and maintained with React as part of Innovance's banking delivery.",
+    role: "Frontend Developer, Innovance",
+    highlights: [
+      "Built user-facing ATM service flows in React.",
+      "Maintained the interfaces in production alongside the wider banking team.",
+    ],
+    stack: ["React", "TypeScript"],
+  },
+};
+
+export const projects: Project[] = projectList.map((project) =>
+  caseStudies[project.slug]
+    ? { ...project, caseStudy: caseStudies[project.slug] }
+    : project,
+);
+
+export const caseStudyProjects = projects.filter(
+  (project): project is Project & { caseStudy: CaseStudy } =>
+    project.caseStudy !== undefined,
+);
+
+const featuredSlugs = ["nimbo", "bulgu", "kadraj", "swallet-samsung", "besiktas-jk-mobile"];
+
+export const featuredProjects = featuredSlugs.map((slug) => {
+  const project = caseStudyProjects.find((item) => item.slug === slug);
+  if (!project) {
+    throw new Error(`Featured project "${slug}" needs a case study`);
+  }
+  return project;
+});
+
+export function getProject(slug: string) {
+  return projects.find((project) => project.slug === slug);
+}

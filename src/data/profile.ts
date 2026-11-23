@@ -3,18 +3,22 @@ export const profile = {
   role: "Senior Software Developer",
   currentCompany: "Innovance Consultancy",
   location: "Konya, Türkiye",
-  website: "mahiruslu.com",
+  availability: "Open to focused product work",
+  email: "mhrsl07@gmail.com",
   github: {
     login: "mahiruslu",
     url: "https://github.com/mahiruslu",
-    publicRepos: 34,
-    followers: 43,
-    following: 59,
-    updatedAt: "2026-05-20T12:19:42Z",
-    hireable: true,
   },
   linkedin: {
     url: "https://www.linkedin.com/in/mahiruslu/",
-    publicSummary: "Konya, Türkiye · Innovance Consultancy",
+  },
+  medium: {
+    url: "https://www.medium.com/@mahir.uslu/",
   },
 } as const;
+
+export const socials = [
+  { label: "GitHub", href: profile.github.url },
+  { label: "LinkedIn", href: profile.linkedin.url },
+  { label: "Medium", href: profile.medium.url },
+] as const;

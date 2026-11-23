@@ -1,12 +1,17 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/data/profile";
 
-export const alt = "Mahir Uslu Senior Frontend Developer portfolio";
+export const alt = "Mahir Uslu, Senior Software Developer";
 export const size = {
   width: 1200,
   height: 630,
 };
 export const contentType = "image/png";
+
+const paper = "#f4efe6";
+const ink = "#151413";
+const muted = "#8b857b";
+const accent = "#e0482e";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -18,76 +23,51 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f1eadc",
-          color: "#0b0f10",
-          padding: 64,
-          border: "18px solid #0b0f10",
+          background: paper,
+          color: ink,
+          padding: "64px 72px",
+          fontFamily: "Georgia, serif",
         }}
       >
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: 28,
-            fontWeight: 800,
-            letterSpacing: 2,
+            fontFamily: "monospace",
+            fontSize: 22,
+            letterSpacing: 3,
             textTransform: "uppercase",
+            color: muted,
           }}
         >
           <span>{profile.role}</span>
           <span>{profile.location}</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 200, lineHeight: 0.9, letterSpacing: -6 }}>Mahir</div>
           <div
             style={{
-              fontSize: 136,
-              lineHeight: 0.88,
-              fontWeight: 900,
-              letterSpacing: -4,
+              fontSize: 200,
+              lineHeight: 0.9,
+              letterSpacing: -6,
+              fontStyle: "italic",
+              color: accent,
             }}
           >
-            Mahir Uslu
-          </div>
-          <div
-            style={{
-              maxWidth: 880,
-              fontSize: 34,
-              lineHeight: 1.2,
-              color: "#1d272a",
-            }}
-          >
-            React, React Native, TypeScript, Next.js, and mobile product
-            experiences.
+            Uslu
           </div>
         </div>
         <div
           style={{
             display: "flex",
-            gap: 18,
-            fontSize: 24,
-            fontWeight: 800,
+            justifyContent: "space-between",
+            borderTop: `1px solid ${muted}`,
+            paddingTop: 24,
+            fontSize: 28,
           }}
         >
-          <span
-            style={{
-              background: "#89c91d",
-              border: "4px solid #0b0f10",
-              padding: "12px 18px",
-            }}
-          >
-            {profile.currentCompany}
-          </span>
-          <span
-            style={{
-              background: "#ff4f3f",
-              color: "#f1eadc",
-              border: "4px solid #0b0f10",
-              padding: "12px 18px",
-            }}
-          >
-            mahiruslu.me
-          </span>
+          <span>React Native, web, and macOS products.</span>
+          <span style={{ fontFamily: "monospace", fontSize: 22, color: muted }}>mahiruslu.me</span>
         </div>
       </div>
     ),
