@@ -6,6 +6,7 @@ export type ProjectLink = {
 export type ProjectType = "Mobile App" | "Desktop App" | "Web app" | "Website";
 
 export type CaseStudy = {
+  titleDescription?: string;
   summary: string;
   role: string;
   highlights: string[];
@@ -380,6 +381,7 @@ const projectList: Project[] = [
  */
 const caseStudies: Record<string, CaseStudy> = {
   nimbo: {
+    titleDescription: "Turkish and English learning games for kids",
     summary:
       "A learning app that teaches Turkish and English to 3–6 year olds through short mini-games, built to run entirely on the device.",
     role: "Independent product: design, engineering, release",
@@ -392,6 +394,7 @@ const caseStudies: Record<string, CaseStudy> = {
     stack: ["React Native", "Expo", "TypeScript", "RevenueCat", "Next.js"],
   },
   bulgu: {
+    titleDescription: "IBS food trigger tracker",
     summary:
       "An IBS app that finds food triggers through structured personal experiments rather than passive journaling.",
     role: "Independent product: design, engineering, release",
@@ -405,6 +408,7 @@ const caseStudies: Record<string, CaseStudy> = {
     stack: ["React Native", "Expo", "TypeScript", "SQLCipher", "RevenueCat"],
   },
   kadraj: {
+    titleDescription: "Open-source macOS screenshot tool",
     summary:
       "An open-source macOS screenshot tool built around one loop: select, annotate in place, copy.",
     role: "Author and maintainer",

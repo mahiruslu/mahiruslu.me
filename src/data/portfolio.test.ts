@@ -19,6 +19,13 @@ describe("portfolio data", () => {
 });
 
 describe("case studies", () => {
+  it("includes descriptive title text for Nimbo, Bulgu, and Kadraj", () => {
+    for (const slug of ["nimbo", "bulgu", "kadraj"]) {
+      const project = caseStudyProjects.find((item) => item.slug === slug);
+      expect(project?.caseStudy.titleDescription?.trim(), slug).toBeTruthy();
+    }
+  });
+
   it("uses unique project slugs", () => {
     const slugs = projects.map((project) => project.slug);
     expect(new Set(slugs).size).toBe(slugs.length);

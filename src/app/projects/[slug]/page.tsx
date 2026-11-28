@@ -35,12 +35,14 @@ export async function generateMetadata({
   }
 
   const { project } = found;
+  const { titleDescription } = project.caseStudy;
+  const title = titleDescription ? `${project.name} – ${titleDescription}` : project.name;
   return {
-    title: project.name,
+    title,
     description: project.caseStudy.summary,
     alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
-      title: `${project.name} | Mahir Uslu`,
+      title: `${title} | Mahir Uslu`,
       description: project.caseStudy.summary,
       url: `/projects/${project.slug}`,
     },
